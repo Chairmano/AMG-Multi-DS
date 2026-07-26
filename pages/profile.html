@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | AMG Multi-DS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg-main: #050318; --bg-secondary: #08052a; --card: rgba(17,13,53,0.72); --purple:#7c3cff; --purple-light:#a36bff; --blue:#327eff; --cyan:#16d9ff; --green:#20e89b; --red:#ff5577; --white:#fff; --text:#f8f7ff; --muted:#9d98b8; --border:rgba(255,255,255,0.08); --radius:20px; --transition:all 0.3s ease;
+    }
+    *{box-sizing:border-box;margin:0;padding:0} body{font-family:'Inter',sans-serif;min-height:100vh;color:var(--text);background:radial-gradient(circle at 10% 0%,rgba(91,44,255,0.16),transparent 28%),radial-gradient(circle at 100% 30%,rgba(0,180,255,0.08),transparent 30%),linear-gradient(145deg,#050318,#08052a,#050318);padding:24px} .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:0 20px 50px rgba(0,0,0,0.25);max-width:720px;margin:0 auto} h1{font-size:1.6rem;margin-bottom:8px} p{color:var(--muted);margin-bottom:18px} .profile-grid{display:grid;gap:16px}.profile-item{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}.profile-item:last-child{border-bottom:none}.label{color:var(--muted)}.value{font-weight:600}.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:none;background:linear-gradient(90deg,var(--purple),var(--blue));color:var(--white);font-weight:700;margin-top:14px}.btn.secondary{background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--text)} a{color:inherit;text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>My Profile</h1>
+    <p>Manage your customer details and account preferences.</p>
+    <div class="profile-grid">
+      <div class="profile-item"><span class="label">Full name</span><span class="value" id="profileName">Kwame Boateng</span></div>
+      <div class="profile-item"><span class="label">Email</span><span class="value" id="profileEmail">kwame@example.com</span></div>
+      <div class="profile-item"><span class="label">Phone</span><span class="value">+233 20 123 4567</span></div>
+      <div class="profile-item"><span class="label">Member since</span><span class="value">Jan 2026</span></div>
+    </div>
+    <a class="btn" href="dashboard.html"><i class="fa-solid fa-arrow-left"></i> Back to dashboard</a>
+    <button class="btn secondary" type="button" onclick="alert('Profile editing will be connected soon.')">Edit profile</button>
+  </div>
+</body>
+</html>

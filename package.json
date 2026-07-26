@@ -1,0 +1,8 @@
+{
+  "name": "amg-multi-ds",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/auth.test.js"
+  }
+}

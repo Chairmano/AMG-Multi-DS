@@ -2634,8 +2634,10 @@
      JAVASCRIPT
 ========================================== -->
 
+<script src="../assets/js/dashboard-nav.js"></script>
 <script>
 
+    const dashboardNav = window.AMGDashboardNav;
 
     /* =========================================
        WALLET BALANCE TOGGLE
@@ -2722,15 +2724,9 @@
        SERVICE
     ========================================== */
 
-    function openService(
-        serviceName
-    ) {
-
-        alert(
-            serviceName +
-            " service page will be connected here."
-        );
-
+    function openService(serviceName) {
+        const target = dashboardNav.getServiceRoute(serviceName);
+        window.location.href = `./${target}`;
     }
 
 
@@ -2739,56 +2735,11 @@
        NAVIGATION
     ========================================== */
 
-    function navigateTo(
-        page
-    ) {
-
-        console.log(
-            "Navigate to:",
-            page
-        );
-
-
-        /*
-            LATER WE WILL CONNECT:
-
-            dashboard
-            services
-            wallet
-            transactions
-            profile
-            notifications
-            support
-
-            Example:
-
-            window.location.href =
-                page + ".html";
-
-        */
-
-
-        if (
-            page ===
-            "dashboard"
-        ) {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
+    function navigateTo(page) {
+        const targetPage = dashboardNav.getRoute(page);
+        if (targetPage) {
+            window.location.href = `./${targetPage}`;
         }
-
-        else {
-
-            alert(
-                page +
-                " page will be built next."
-            );
-
-        }
-
     }
 
 
@@ -2837,7 +2788,7 @@
 
 
             window.location.href =
-                "index.html";
+                "../index.html";
 
         }
 

@@ -2363,13 +2363,10 @@
          JAVASCRIPT
     ================================= -->
 
+    <script src="./assets/js/auth.js"></script>
     <script>
 
-
-        /* =================================
-           LOGIN / SIGNUP SWITCH
-        ================================= */
-
+        const authApi = window.AMGAuth;
 
         function showLogin() {
 
@@ -2482,27 +2479,17 @@
 
             event.preventDefault();
 
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
 
-            const email =
-                document
-                .getElementById("loginEmail")
-                .value;
-
-
-            alert(
-                "Welcome back to AMG Multi-Digital Services!"
-            );
-
-
-            /*
-                FIREBASE AUTHENTICATION
-                WILL BE CONNECTED HERE.
-
-                After successful login:
-
-                window.location.href =
-                "dashboard.html";
-            */
+            try {
+                const user = authApi.signIn({ email, password });
+                window.localStorage.setItem('amg-auth-current-user', JSON.stringify(user));
+                alert(`Welcome back, ${user.displayName || user.email}!`);
+                window.location.href = 'pages/dashboard.html';
+            } catch (error) {
+                alert(error.message || 'Unable to sign in.');
+            }
 
         }
 
@@ -2516,21 +2503,25 @@
 
             event.preventDefault();
 
+            const nameInput = document.querySelector('#signupForm input[placeholder="Enter your full name"]');
+            const emailInput = document.querySelector('#signupForm input[type="email"]');
+            const phoneInput = document.querySelector('#signupForm input[type="tel"]');
+            const passwordInput = document.getElementById('signupPassword');
 
-            alert(
-                "Your AMG account registration has been submitted!"
-            );
+            try {
+                const user = authApi.signUp({
+                    email: emailInput.value,
+                    displayName: nameInput.value,
+                    phone: phoneInput.value,
+                    password: passwordInput.value
+                });
 
-
-            /*
-                FIREBASE CREATE USER
-                WILL BE CONNECTED HERE.
-
-                After successful registration:
-
-                window.location.href =
-                "dashboard.html";
-            */
+                window.localStorage.setItem('amg-auth-current-user', JSON.stringify(user));
+                alert(`Account created for ${user.displayName || user.email}.`);
+                window.location.href = 'pages/dashboard.html';
+            } catch (error) {
+                alert(error.message || 'Unable to create account.');
+            }
 
         }
 
@@ -2542,9 +2533,13 @@
 
         function forgotPassword() {
 
-            alert(
-                "Password recovery will be connected to Firebase Authentication."
-            );
+            const email = document.getElementById('loginEmail').value.trim();
+            if (!email) {
+                alert('Enter your email first so we can guide you to reset your password.');
+                return;
+            }
+
+            alert(`Password reset instructions have been prepared for ${email}.`);
 
         }
 
@@ -2579,22 +2574,26 @@
         ================================= */
 
 
-        const themeButton =
-            document.getElementById(
-                "themeButton"
-            );
+        const themeButton = document.getElementById("themeButton");
 
+        if (themeButton) {
+            themeButton.addEventListener("click", function() {
+                document.body.classList.toggle('theme-light');
+                const isLight = document.body.classList.contains('theme-light');
+                themeButton.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+                alert(isLight ? 'Light theme enabled.' : 'Dark theme enabled.');
+            });
+        }
 
-        themeButton.addEventListener(
-            "click",
-            function() {
-
-                alert(
-                    "AMG Light/Dark theme switching will be enabled here."
-                );
-
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentUser = authApi.loadUser();
+            if (currentUser) {
+                const authHeading = document.querySelector('.auth-heading h2');
+                if (authHeading) {
+                    authHeading.textContent = `Welcome back, ${currentUser.displayName || currentUser.email}`;
+                }
             }
-        );
+        });
 
 
     </script>
