@@ -1,0 +1,3462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#050318"
+>
+
+<title>
+    AMG Wallet | AMG Multi-Digital Services
+</title>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+
+    --bg-main: #050318;
+
+    --bg-secondary: #08052a;
+
+    --card:
+        rgba(17, 13, 53, 0.72);
+
+    --purple: #7c3cff;
+
+    --purple-light: #a36bff;
+
+    --blue: #327eff;
+
+    --cyan: #16d9ff;
+
+    --green: #20e89b;
+
+    --red: #ff5577;
+
+    --gold: #ffd45c;
+
+    --white: #ffffff;
+
+    --text:
+        #f8f7ff;
+
+    --muted:
+        #9d98b8;
+
+    --border:
+        rgba(255,255,255,0.08);
+
+    --radius:
+        20px;
+
+    --transition:
+        all 0.3s ease;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    color:
+        var(--text);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(91,44,255,0.16),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 100% 30%,
+            rgba(0,180,255,0.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #050318,
+            #08052a,
+            #050318
+        );
+
+    overflow-x: hidden;
+
+}
+
+
+button,
+input,
+select {
+
+    font-family:
+        inherit;
+
+}
+
+
+button {
+
+    cursor:
+        pointer;
+
+}
+
+
+a {
+
+    text-decoration:
+        none;
+
+    color:
+        inherit;
+
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+
+    width:
+        250px;
+
+    min-height:
+        100vh;
+
+    position:
+        fixed;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    padding:
+        25px 16px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    background:
+        rgba(7,5,29,0.94);
+
+    border-right:
+        1px solid
+        var(--border);
+
+    backdrop-filter:
+        blur(20px);
+
+    z-index:
+        100;
+
+}
+
+
+.sidebar-brand {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        0 10px 25px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.brand-orb {
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #21165f,
+            #07051f
+        );
+
+    border:
+        1px solid
+        rgba(125,75,255,0.7);
+
+    box-shadow:
+
+        0 0 20px
+        rgba(112,61,255,0.4);
+
+}
+
+
+.brand-info h2 {
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+}
+
+
+.brand-info p {
+
+    margin-top:
+        3px;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2px;
+
+    color:
+        var(--muted);
+
+}
+
+
+/* =====================================================
+   NAV
+===================================================== */
+
+.sidebar-nav {
+
+    padding-top:
+        25px;
+
+    flex:
+        1;
+
+}
+
+
+.nav-label {
+
+    font-size:
+        9px;
+
+    color:
+        #66617f;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1.5px;
+
+    padding:
+        0 12px 10px;
+
+}
+
+
+.nav-link {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+    padding:
+        12px;
+
+    margin-bottom:
+        5px;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    background:
+        transparent;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    text-align:
+        left;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.nav-link i {
+
+    width:
+        20px;
+
+}
+
+
+.nav-link:hover {
+
+    color:
+        white;
+
+    background:
+        rgba(124,60,255,0.1);
+
+}
+
+
+.nav-link.active {
+
+    color:
+        white;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            rgba(108,48,245,0.8),
+            rgba(52,103,255,0.7)
+        );
+
+}
+
+
+.sidebar-bottom {
+
+    border-top:
+        1px solid
+        var(--border);
+
+    padding-top:
+        15px;
+
+}
+
+
+.logout-btn {
+
+    color:
+        var(--red);
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main-content {
+
+    width:
+        100%;
+
+    margin-left:
+        250px;
+
+    padding:
+        25px 35px 70px;
+
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.page-title h1 {
+
+    font-size:
+        24px;
+
+    margin-bottom:
+        6px;
+
+}
+
+
+.page-title p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+}
+
+
+.topbar-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.icon-button {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color:
+        var(--muted);
+
+}
+
+
+.profile-mini {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #773cff,
+            #287eff
+        );
+
+    color:
+        white;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =====================================================
+   WALLET HERO
+===================================================== */
+
+.wallet-hero {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        28px;
+
+    border-radius:
+        24px;
+
+    margin-bottom:
+        20px;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            rgba(88,42,221,0.9),
+            rgba(41,89,220,0.82)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 20px 50px
+        rgba(32,22,110,0.2);
+
+}
+
+
+.wallet-hero::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        300px;
+
+    height:
+        300px;
+
+    right:
+        -100px;
+
+    top:
+        -130px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.08);
+
+}
+
+
+.wallet-hero::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    right:
+        120px;
+
+    bottom:
+        -100px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.05);
+
+}
+
+
+.wallet-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+}
+
+
+.wallet-top {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.wallet-label {
+
+    font-size:
+        10px;
+
+    color:
+        rgba(255,255,255,0.7);
+
+}
+
+
+.wallet-balance {
+
+    margin-top:
+        7px;
+
+    font-size:
+        32px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -1px;
+
+}
+
+
+.wallet-number {
+
+    font-size:
+        9px;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    margin-top:
+        6px;
+
+}
+
+
+.wallet-chip {
+
+    width:
+        45px;
+
+    height:
+        32px;
+
+    border-radius:
+        7px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        14px;
+
+}
+
+
+.wallet-actions {
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
+}
+
+
+.wallet-action {
+
+    padding:
+        11px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255,255,255,0.1);
+
+    color:
+        white;
+
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.wallet-action.primary {
+
+    background:
+        white;
+
+    color:
+        #5130c9;
+
+}
+
+
+.wallet-action:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.wallet-stats {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        15px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.stat-card {
+
+    padding:
+        20px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        18px;
+
+    background:
+        var(--card);
+
+}
+
+
+.stat-icon {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        11px;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.stat-icon.green {
+
+    color:
+        var(--green);
+
+    background:
+        rgba(32,232,155,0.1);
+
+}
+
+
+.stat-icon.blue {
+
+    color:
+        var(--cyan);
+
+    background:
+        rgba(22,217,255,0.1);
+
+}
+
+
+.stat-icon.purple {
+
+    color:
+        var(--purple-light);
+
+    background:
+        rgba(163,107,255,0.1);
+
+}
+
+
+.stat-card p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    margin-bottom:
+        7px;
+
+}
+
+
+.stat-card h3 {
+
+    font-size:
+        18px;
+
+}
+
+
+/* =====================================================
+   CONTENT GRID
+===================================================== */
+
+.wallet-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(300px,0.75fr);
+
+    gap:
+        20px;
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+
+    padding:
+        22px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--card);
+
+}
+
+
+.card-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.card-header h2 {
+
+    font-size:
+        15px;
+
+}
+
+
+.card-header p {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+}
+
+
+/* =====================================================
+   FUND WALLET
+===================================================== */
+
+.funding-tabs {
+
+    display:
+        flex;
+
+    gap:
+        5px;
+
+    padding:
+        5px;
+
+    margin-bottom:
+        20px;
+
+    background:
+        rgba(0,0,0,0.15);
+
+    border-radius:
+        11px;
+
+}
+
+
+.funding-tab {
+
+    flex:
+        1;
+
+    padding:
+        10px;
+
+    border:
+        none;
+
+    border-radius:
+        8px;
+
+    background:
+        transparent;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+}
+
+
+.funding-tab.active {
+
+    background:
+        rgba(124,60,255,0.2);
+
+    color:
+        white;
+
+}
+
+
+.amount-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:
+        8px;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.amount-btn {
+
+    padding:
+        11px 5px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+}
+
+
+.amount-btn:hover,
+.amount-btn.selected {
+
+    border-color:
+        var(--purple);
+
+    background:
+        rgba(124,60,255,0.12);
+
+    color:
+        white;
+
+}
+
+
+.input-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        #d5d1e6;
+
+    font-size:
+        9px;
+
+}
+
+
+.amount-input-wrapper {
+
+    position:
+        relative;
+
+}
+
+
+.currency-symbol {
+
+    position:
+        absolute;
+
+    left:
+        13px;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+}
+
+
+.amount-input {
+
+    width:
+        100%;
+
+    padding:
+        14px 14px 14px 42px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        11px;
+
+    outline:
+        none;
+
+    background:
+        rgba(0,0,0,0.2);
+
+    color:
+        white;
+
+    font-size:
+        12px;
+
+}
+
+
+.amount-input:focus {
+
+    border-color:
+        var(--purple);
+
+}
+
+
+.continue-button {
+
+    width:
+        100%;
+
+    margin-top:
+        15px;
+
+    padding:
+        14px;
+
+    border:
+        none;
+
+    border-radius:
+        11px;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #7135f5,
+            #337eff
+        );
+
+    color:
+        white;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =====================================================
+   PAYMENT METHODS
+===================================================== */
+
+.payment-methods {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        10px;
+
+    margin-top:
+        18px;
+
+}
+
+
+.payment-method {
+
+    padding:
+        14px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+}
+
+
+.payment-method i {
+
+    display:
+        block;
+
+    font-size:
+        19px;
+
+    margin-bottom:
+        7px;
+
+    color:
+        var(--purple-light);
+
+}
+
+
+/* =====================================================
+   TRANSACTIONS
+===================================================== */
+
+.view-all {
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        var(--purple-light);
+
+    font-size:
+        9px;
+
+}
+
+
+.transaction-list {
+
+    display:
+        grid;
+
+    gap:
+        4px;
+
+}
+
+
+.transaction {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        14px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.05);
+
+}
+
+
+.transaction:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+.transaction-left {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+}
+
+
+.transaction-icon {
+
+    width:
+        37px;
+
+    height:
+        37px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        10px;
+
+}
+
+
+.transaction-icon.deposit {
+
+    color:
+        var(--green);
+
+    background:
+        rgba(32,232,155,0.1);
+
+}
+
+
+.transaction-icon.purchase {
+
+    color:
+        var(--purple-light);
+
+    background:
+        rgba(163,107,255,0.1);
+
+}
+
+
+.transaction-icon.electricity {
+
+    color:
+        var(--gold);
+
+    background:
+        rgba(255,212,92,0.1);
+
+}
+
+
+.transaction-details h4 {
+
+    font-size:
+        9px;
+
+    margin-bottom:
+        4px;
+
+}
+
+
+.transaction-details p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+
+}
+
+
+.transaction-amount {
+
+    text-align:
+        right;
+
+}
+
+
+.transaction-amount strong {
+
+    display:
+        block;
+
+    font-size:
+        10px;
+
+}
+
+
+.transaction-amount small {
+
+    color:
+        var(--muted);
+
+    font-size:
+        7px;
+
+}
+
+
+.transaction-amount.positive strong {
+
+    color:
+        var(--green);
+
+}
+
+
+.transaction-amount.negative strong {
+
+    color:
+        #ff7592;
+
+}
+
+
+/* =====================================================
+   SECURITY
+===================================================== */
+
+.security-card {
+
+    margin-top:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        12px;
+
+    padding:
+        16px;
+
+    border:
+        1px solid
+        rgba(32,232,155,0.1);
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(32,232,155,0.04);
+
+}
+
+
+.security-card i {
+
+    color:
+        var(--green);
+
+}
+
+
+.security-card h4 {
+
+    font-size:
+        9px;
+
+    margin-bottom:
+        4px;
+
+}
+
+
+.security-card p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+
+    line-height:
+        1.5;
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp-button {
+
+    position:
+        fixed;
+
+    right:
+        22px;
+
+    bottom:
+        25px;
+
+    width:
+        56px;
+
+    height:
+        56px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        #25D366;
+
+    color:
+        white;
+
+    font-size:
+        26px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(37,211,102,0.3);
+
+    z-index:
+        500;
+
+}
+
+
+/* =====================================================
+   MOBILE NAV
+===================================================== */
+
+.mobile-nav {
+
+    display:
+        none;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media
+(max-width: 900px) {
+
+    .wallet-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media
+(max-width: 700px) {
+
+    .sidebar {
+
+        display:
+            none;
+
+    }
+
+
+    .main-content {
+
+        margin-left:
+            0;
+
+        padding:
+            18px
+            15px
+            100px;
+
+    }
+
+
+    .page-title h1 {
+
+        font-size:
+            20px;
+
+    }
+
+
+    .wallet-hero {
+
+        padding:
+            22px;
+
+    }
+
+
+    .wallet-balance {
+
+        font-size:
+            27px;
+
+    }
+
+
+    .wallet-stats {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .wallet-actions {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .wallet-action {
+
+        width:
+            100%;
+
+    }
+
+
+    .amount-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .payment-methods {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .whatsapp-button {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+        right:
+            17px;
+
+        bottom:
+            88px;
+
+        font-size:
+            22px;
+
+    }
+
+
+    .mobile-nav {
+
+        display:
+            flex;
+
+        position:
+            fixed;
+
+        left:
+            10px;
+
+        right:
+            10px;
+
+        bottom:
+            10px;
+
+        height:
+            68px;
+
+        padding:
+            7px;
+
+        border:
+            1px solid
+            rgba(255,255,255,0.1);
+
+        border-radius:
+            20px;
+
+        background:
+            rgba(9,6,39,0.94);
+
+        backdrop-filter:
+            blur(20px);
+
+        z-index:
+            400;
+
+    }
+
+
+    .mobile-nav-item {
+
+        flex:
+            1;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        gap:
+            5px;
+
+        border:
+            none;
+
+        background:
+            none;
+
+        color:
+            #77718f;
+
+        font-size:
+            8px;
+
+    }
+
+
+    .mobile-nav-item i {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .mobile-nav-item.active {
+
+        color:
+            #a875ff;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+
+<div class="sidebar-brand">
+
+
+<div class="brand-orb">
+    AMG
+</div>
+
+
+<div class="brand-info">
+
+<h2>
+    AMG Multi-Digital
+</h2>
+
+<p>
+    SERVICES
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<nav class="sidebar-nav">
+
+
+<div class="nav-label">
+    Main Menu
+</div>
+
+
+<button
+    class="nav-link"
+    onclick="goTo('dashboard.html')"
+>
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</button>
+
+
+<button
+    class="nav-link"
+    onclick="goTo('data.html')"
+>
+
+<i class="fa-solid fa-database"></i>
+
+Buy Data
+
+</button>
+
+
+<button
+    class="nav-link"
+    onclick="goTo('airtime.html')"
+>
+
+<i class="fa-solid fa-phone"></i>
+
+Buy Airtime
+
+</button>
+
+
+<button
+    class="nav-link"
+    onclick="goTo('electricity.html')"
+>
+
+<i class="fa-solid fa-bolt"></i>
+
+Electricity
+
+</button>
+
+
+<button
+    class="nav-link"
+    onclick="goTo('results.html')"
+>
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+Results Checker
+
+</button>
+
+
+<button
+    class="nav-link"
+    onclick="goTo('services.html')"
+>
+
+<i class="fa-solid fa-grid-2"></i>
+
+All Services
+
+</button>
+
+
+<button
+    class="nav-link active"
+>
+
+<i class="fa-solid fa-wallet"></i>
+
+Wallet
+
+</button>
+
+
+<button
+    class="nav-link"
+    onclick="goTo('transactions.html')"
+>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Transactions
+
+</button>
+
+
+
+<div
+    class="nav-label"
+    style="margin-top:25px;"
+>
+
+Account
+
+</div>
+
+
+<button
+    class="nav-link"
+    onclick="goTo('profile.html')"
+>
+
+<i class="fa-solid fa-user"></i>
+
+My Profile
+
+</button>
+
+
+<button
+    class="nav-link"
+    onclick="showNotification()"
+>
+
+<i class="fa-solid fa-bell"></i>
+
+Notifications
+
+</button>
+
+
+<button
+    class="nav-link"
+    onclick="openWhatsApp()"
+>
+
+<i class="fa-solid fa-headset"></i>
+
+Support Center
+
+</button>
+
+
+</nav>
+
+
+
+<div class="sidebar-bottom">
+
+
+<button
+    class="nav-link logout-btn"
+    onclick="logout()"
+>
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</button>
+
+
+</div>
+
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main-content">
+
+
+<!-- TOPBAR -->
+
+<header class="topbar">
+
+
+<div class="page-title">
+
+<h1>
+    AMG Wallet
+</h1>
+
+<p>
+    Manage your balance and fund your wallet securely.
+</p>
+
+</div>
+
+
+
+<div class="topbar-actions">
+
+
+<button
+    class="icon-button"
+    onclick="showNotification()"
+>
+
+<i class="fa-regular fa-bell"></i>
+
+</button>
+
+
+<button
+    class="profile-mini"
+    onclick="goTo('profile.html')"
+>
+
+KM
+
+</button>
+
+
+</div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     WALLET HERO
+===================================================== -->
+
+<section class="wallet-hero">
+
+
+<div class="wallet-content">
+
+
+<div class="wallet-top">
+
+
+<div>
+
+<div class="wallet-label">
+    Available Balance
+</div>
+
+
+<div
+    class="wallet-balance"
+    id="walletBalance"
+>
+
+GH₵ 250.00
+
+</div>
+
+
+<div class="wallet-number">
+
+AMG Wallet •••• 4829
+
+</div>
+
+</div>
+
+
+<div class="wallet-chip">
+
+<i class="fa-solid fa-wallet"></i>
+
+</div>
+
+
+</div>
+
+
+
+<div class="wallet-actions">
+
+
+<button
+    class="wallet-action primary"
+    onclick="scrollToFunding()"
+>
+
+<i class="fa-solid fa-plus"></i>
+
+Fund Wallet
+
+</button>
+
+
+<button
+    class="wallet-action"
+    onclick="goTo('transactions.html')"
+>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+View Transactions
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="wallet-stats">
+
+
+<div class="stat-card">
+
+
+<div class="stat-icon green">
+
+<i class="fa-solid fa-arrow-down"></i>
+
+</div>
+
+
+<p>
+    Total Deposits
+</p>
+
+
+<h3>
+    GH₵ 1,850.00
+</h3>
+
+
+</div>
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-icon purple">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+</div>
+
+
+<p>
+    Total Spent
+</p>
+
+
+<h3>
+    GH₵ 1,600.00
+</h3>
+
+
+</div>
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-icon blue">
+
+<i class="fa-solid fa-chart-line"></i>
+
+</div>
+
+
+<p>
+    This Month
+</p>
+
+
+<h3>
+    GH₵ 420.00
+</h3>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     WALLET GRID
+===================================================== -->
+
+<div class="wallet-grid">
+
+
+
+<!-- =====================================================
+     FUND WALLET
+===================================================== -->
+
+<section
+    class="card"
+    id="fundWallet"
+>
+
+
+<div class="card-header">
+
+
+<div>
+
+<h2>
+    Fund Your Wallet
+</h2>
+
+<p>
+    Add money to your AMG wallet to pay for services.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<!-- TABS -->
+
+<div class="funding-tabs">
+
+
+<button
+    class="funding-tab active"
+    onclick="switchFunding('deposit', this)"
+>
+
+<i class="fa-solid fa-plus"></i>
+
+Deposit
+
+</button>
+
+
+<button
+    class="funding-tab"
+    onclick="switchFunding('withdraw', this)"
+>
+
+<i class="fa-solid fa-arrow-up"></i>
+
+Withdraw
+
+</button>
+
+
+</div>
+
+
+
+<!-- DEPOSIT AREA -->
+
+<div id="depositArea">
+
+
+<label class="input-label">
+
+Select Amount
+
+</label>
+
+
+<div class="amount-grid">
+
+
+<button
+    class="amount-btn"
+    onclick="selectAmount(10, this)"
+>
+
+GH₵ 10
+
+</button>
+
+
+<button
+    class="amount-btn"
+    onclick="selectAmount(20, this)"
+>
+
+GH₵ 20
+
+</button>
+
+
+<button
+    class="amount-btn"
+    onclick="selectAmount(50, this)"
+>
+
+GH₵ 50
+
+</button>
+
+
+<button
+    class="amount-btn"
+    onclick="selectAmount(100, this)"
+>
+
+GH₵ 100
+
+</button>
+
+
+</div>
+
+
+
+<label
+    class="input-label"
+    for="customAmount"
+>
+
+Or Enter Amount
+
+</label>
+
+
+<div class="amount-input-wrapper">
+
+
+<span class="currency-symbol">
+    GH₵
+</span>
+
+
+<input
+    type="number"
+    id="customAmount"
+    class="amount-input"
+    placeholder="0.00"
+    min="1"
+    oninput="customAmountChanged()"
+>
+
+
+</div>
+
+
+
+<div class="payment-methods">
+
+
+<div class="payment-method">
+
+<i class="fa-solid fa-mobile-screen-button"></i>
+
+Mobile Money
+
+</div>
+
+
+<div class="payment-method">
+
+<i class="fa-solid fa-credit-card"></i>
+
+Bank Card
+
+</div>
+
+
+</div>
+
+
+
+<button
+    class="continue-button"
+    onclick="fundWallet()"
+>
+
+Continue to Payment
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+
+</div>
+
+
+
+<!-- WITHDRAW AREA -->
+
+<div
+    id="withdrawArea"
+    style="display:none;"
+>
+
+
+<label class="input-label">
+
+Amount to Withdraw
+
+</label>
+
+
+<div class="amount-input-wrapper">
+
+
+<span class="currency-symbol">
+    GH₵
+</span>
+
+
+<input
+    type="number"
+    id="withdrawAmount"
+    class="amount-input"
+    placeholder="0.00"
+    min="1"
+>
+
+
+</div>
+
+
+
+<br>
+
+
+<label class="input-label">
+
+Mobile Money Number
+
+</label>
+
+
+<input
+    type="tel"
+    id="withdrawPhone"
+    class="amount-input"
+    style="padding-left:14px;"
+    placeholder="024 XXX XXXX"
+>
+
+
+
+<button
+    class="continue-button"
+    onclick="withdrawWallet()"
+>
+
+Request Withdrawal
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     TRANSACTIONS
+===================================================== -->
+
+<section class="card">
+
+
+<div class="card-header">
+
+
+<div>
+
+<h2>
+    Recent Transactions
+</h2>
+
+<p>
+    Your latest wallet activities.
+</p>
+
+</div>
+
+
+<button
+    class="view-all"
+    onclick="goTo('transactions.html')"
+>
+
+View All
+
+</button>
+
+
+</div>
+
+
+
+<div class="transaction-list">
+
+
+
+<!-- TRANSACTION 1 -->
+
+<div class="transaction">
+
+
+<div class="transaction-left">
+
+
+<div class="transaction-icon deposit">
+
+<i class="fa-solid fa-arrow-down"></i>
+
+</div>
+
+
+<div class="transaction-details">
+
+<h4>
+    Wallet Funding
+</h4>
+
+<p>
+    Today • 10:42 AM
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="transaction-amount positive">
+
+<strong>
+    +GH₵ 100.00
+</strong>
+
+<small>
+    Successful
+</small>
+
+</div>
+
+
+</div>
+
+
+
+<!-- TRANSACTION 2 -->
+
+<div class="transaction">
+
+
+<div class="transaction-left">
+
+
+<div class="transaction-icon purchase">
+
+<i class="fa-solid fa-database"></i>
+
+</div>
+
+
+<div class="transaction-details">
+
+<h4>
+    Data Purchase
+</h4>
+
+<p>
+    Today • 09:15 AM
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="transaction-amount negative">
+
+<strong>
+    -GH₵ 20.00
+</strong>
+
+<small>
+    Successful
+</small>
+
+</div>
+
+
+</div>
+
+
+
+<!-- TRANSACTION 3 -->
+
+<div class="transaction">
+
+
+<div class="transaction-left">
+
+
+<div class="transaction-icon electricity">
+
+<i class="fa-solid fa-bolt"></i>
+
+</div>
+
+
+<div class="transaction-details">
+
+<h4>
+    Electricity Bill
+</h4>
+
+<p>
+    Yesterday • 06:30 PM
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="transaction-amount negative">
+
+<strong>
+    -GH₵ 50.00
+</strong>
+
+<small>
+    Successful
+</small>
+
+</div>
+
+
+</div>
+
+
+
+<!-- TRANSACTION 4 -->
+
+<div class="transaction">
+
+
+<div class="transaction-left">
+
+
+<div class="transaction-icon deposit">
+
+<i class="fa-solid fa-arrow-down"></i>
+
+</div>
+
+
+<div class="transaction-details">
+
+<h4>
+    Wallet Funding
+</h4>
+
+<p>
+    20 Jun • 02:10 PM
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="transaction-amount positive">
+
+<strong>
+    +GH₵ 200.00
+</strong>
+
+<small>
+    Successful
+</small>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
+<!-- SECURITY -->
+
+<div class="security-card">
+
+
+<i class="fa-solid fa-shield-halved"></i>
+
+
+<div>
+
+<h4>
+    Your Wallet is Secure
+</h4>
+
+
+<p>
+
+AMG uses secure payment processing to protect your wallet transactions.
+Payment integrations such as Paystack will be connected securely through the AMG backend.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MOBILE NAV
+===================================================== -->
+
+<nav class="mobile-nav">
+
+
+<button
+    class="mobile-nav-item"
+    onclick="goTo('dashboard.html')"
+>
+
+<i class="fa-solid fa-house"></i>
+
+Home
+
+</button>
+
+
+<button
+    class="mobile-nav-item"
+    onclick="goTo('services.html')"
+>
+
+<i class="fa-solid fa-grid-2"></i>
+
+Services
+
+</button>
+
+
+<button
+    class="mobile-nav-item"
+    onclick="goTo('transactions.html')"
+>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+History
+
+</button>
+
+
+<button
+    class="mobile-nav-item active"
+>
+
+<i class="fa-solid fa-wallet"></i>
+
+Wallet
+
+</button>
+
+
+<button
+    class="mobile-nav-item"
+    onclick="goTo('profile.html')"
+>
+
+<i class="fa-solid fa-user"></i>
+
+Profile
+
+</button>
+
+
+</nav>
+
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+    href="https://wa.me/2330000000000"
+    target="_blank"
+    class="whatsapp-button"
+>
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<script>
+
+/* =====================================================
+   WALLET STATE
+===================================================== */
+
+let selectedAmount = 0;
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function goTo(page) {
+
+    window.location.href =
+        page;
+
+}
+
+
+/* =====================================================
+   SCROLL TO FUNDING
+===================================================== */
+
+function scrollToFunding() {
+
+    document
+        .getElementById(
+            "fundWallet"
+        )
+        .scrollIntoView({
+
+            behavior:
+                "smooth"
+
+        });
+
+}
+
+
+/* =====================================================
+   SWITCH DEPOSIT / WITHDRAW
+===================================================== */
+
+function switchFunding(
+    type,
+    button
+) {
+
+
+    const tabs =
+
+        document
+        .querySelectorAll(
+            ".funding-tab"
+        );
+
+
+    tabs.forEach(
+        tab => {
+
+            tab.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    if (
+        type === "deposit"
+    ) {
+
+
+        document
+            .getElementById(
+                "depositArea"
+            )
+            .style.display =
+                "block";
+
+
+        document
+            .getElementById(
+                "withdrawArea"
+            )
+            .style.display =
+                "none";
+
+
+    }
+
+    else {
+
+
+        document
+            .getElementById(
+                "depositArea"
+            )
+            .style.display =
+                "none";
+
+
+        document
+            .getElementById(
+                "withdrawArea"
+            )
+            .style.display =
+                "block";
+
+
+    }
+
+}
+
+
+/* =====================================================
+   SELECT QUICK AMOUNT
+===================================================== */
+
+function selectAmount(
+    amount,
+    button
+) {
+
+
+    selectedAmount =
+        amount;
+
+
+    const buttons =
+
+        document
+        .querySelectorAll(
+            ".amount-btn"
+        );
+
+
+    buttons.forEach(
+        btn => {
+
+            btn.classList.remove(
+                "selected"
+            );
+
+        }
+    );
+
+
+    button.classList.add(
+        "selected"
+    );
+
+
+    document
+        .getElementById(
+            "customAmount"
+        )
+        .value =
+            amount;
+
+}
+
+
+/* =====================================================
+   CUSTOM AMOUNT
+===================================================== */
+
+function customAmountChanged() {
+
+
+    selectedAmount =
+
+        Number(
+
+            document
+            .getElementById(
+                "customAmount"
+            )
+            .value
+
+        );
+
+
+    document
+        .querySelectorAll(
+            ".amount-btn"
+        )
+        .forEach(
+            btn => {
+
+                btn.classList.remove(
+                    "selected"
+                );
+
+            }
+        );
+
+}
+
+
+/* =====================================================
+   FUND WALLET
+===================================================== */
+
+function fundWallet() {
+
+
+    const amount =
+
+        Number(
+
+            document
+            .getElementById(
+                "customAmount"
+            )
+            .value
+
+        );
+
+
+    if (
+        !amount
+        ||
+        amount <= 0
+    ) {
+
+
+        alert(
+            "Please enter a valid amount."
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+        FUTURE PAYMENT FLOW
+
+        User
+          ↓
+        AMG Wallet
+          ↓
+        Backend
+          ↓
+        Paystack
+          ↓
+        Payment Verification
+          ↓
+        Wallet Credit
+          ↓
+        Transaction Record
+
+    */
+
+
+    alert(
+
+        "Demo Mode\n\n"
+
+        +
+
+        "You are about to fund your AMG Wallet with GH₵ "
+
+        +
+
+        amount.toFixed(2)
+
+        +
+
+        ".\n\n"
+
+        +
+
+        "Paystack payment integration will be connected later."
+
+    );
+
+}
+
+
+/* =====================================================
+   WITHDRAW WALLET
+===================================================== */
+
+function withdrawWallet() {
+
+
+    const amount =
+
+        Number(
+
+            document
+            .getElementById(
+                "withdrawAmount"
+            )
+            .value
+
+        );
+
+
+    const phone =
+
+        document
+        .getElementById(
+            "withdrawPhone"
+        )
+        .value
+        .trim();
+
+
+    if (
+        !amount
+        ||
+        amount <= 0
+    ) {
+
+
+        alert(
+            "Enter a valid withdrawal amount."
+        );
+
+
+        return;
+
+    }
+
+
+    if (
+        phone.length < 9
+    ) {
+
+
+        alert(
+            "Enter a valid Mobile Money number."
+        );
+
+
+        return;
+
+    }
+
+
+    alert(
+
+        "Withdrawal Request\n\n"
+
+        +
+
+        "Amount: GH₵ "
+        +
+        amount.toFixed(2)
+
+        +
+
+        "\nMobile Money: "
+        +
+        phone
+
+        +
+
+        "\n\n"
+
+        +
+
+        "Withdrawal processing will be connected to the AMG backend."
+
+    );
+
+}
+
+
+/* =====================================================
+   NOTIFICATIONS
+===================================================== */
+
+function showNotification() {
+
+
+    alert(
+
+        "You have 1 new AMG notification."
+
+    );
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function openWhatsApp() {
+
+
+    window.open(
+
+        "https://wa.me/2330000000000",
+
+        "_blank"
+
+    );
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout() {
+
+
+    const confirmLogout =
+
+        confirm(
+
+            "Are you sure you want to logout?"
+
+        );
+
+
+    if (
+        confirmLogout
+    ) {
+
+
+        /*
+            FIREBASE AUTH
+            WILL BE CONNECTED LATER.
+        */
+
+
+        window.location.href =
+            "index.html";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
