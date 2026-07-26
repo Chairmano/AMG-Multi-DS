@@ -1,47 +1,2433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | AMG Multi-DS</title>
-  <link rel="stylesheet" href="../styles.css" />
-</head>
-<body>
-  <div id="site-header"></div>
-  <main class="page-shell">
-    <h1>Services</h1>
-    <p class="lead">We design, build, and scale digital growth systems for ambitious brands.</p>
-    <div class="service-grid">
-      <article class="card">
-        <h3>Brand systems</h3>
-        <p>Unified messaging, visuals, and positioning that create instant recognition.</p>
-      </article>
-      <article class="card">
-        <h3>Conversion pages</h3>
-        <p>Landing experiences that guide attention from first touch to action.</p>
-      </article>
-      <article class="card">
-        <h3>Campaign automation</h3>
-        <p>Lifecycle flows, CRM follow-up, and reporting for visible growth.</p>
-      </article>
-    </div>
-  </main>
-  <div id="site-footer"></div>
-  <script>
-    async function loadComponent(targetId, file) {
-      const target = document.getElementById(targetId);
-      if (!target) return;
-      try {
-        const response = await fetch(file);
-        if (!response.ok) throw new Error('Load failed');
-        target.innerHTML = await response.text();
-      } catch (error) {
-        target.innerHTML = '<p>Content unavailable.</p>';
-      }
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050318"
+    >
+
+    <title>
+        Services | AMG Multi-Digital Services
+    </title>
+
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+
+    --bg-main: #050318;
+
+    --bg-secondary: #08052a;
+
+    --bg-card:
+        rgba(17, 13, 53, 0.72);
+
+    --purple: #7c3cff;
+
+    --purple-light: #a36bff;
+
+    --blue: #327eff;
+
+    --cyan: #16d9ff;
+
+    --pink: #d43cff;
+
+    --white: #ffffff;
+
+    --text-main: #f8f7ff;
+
+    --text-muted: #9d98b8;
+
+    --border:
+        rgba(255,255,255,0.08);
+
+    --success: #20e89b;
+
+    --danger: #ff5577;
+
+    --radius:
+        20px;
+
+    --transition:
+        all 0.3s ease;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    color:
+        var(--text-main);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(91,44,255,0.16),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 100% 30%,
+            rgba(0,180,255,0.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #050318,
+            #08052a,
+            #050318
+        );
+
+    overflow-x: hidden;
+
+}
+
+
+button,
+input {
+
+    font-family:
+        inherit;
+
+}
+
+
+button {
+
+    cursor: pointer;
+
+}
+
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+
+    min-height: 100vh;
+
+    display: flex;
+
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+
+    width: 250px;
+
+    min-height: 100vh;
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    padding:
+        25px 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        rgba(7,5,29,0.94);
+
+    border-right:
+        1px solid
+        var(--border);
+
+    backdrop-filter:
+        blur(20px);
+
+    z-index: 100;
+
+}
+
+
+/* BRAND */
+
+.sidebar-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        0 10px 25px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.brand-orb {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #21165f,
+            #07051f
+        );
+
+    border:
+        1px solid
+        rgba(125,75,255,0.7);
+
+    box-shadow:
+
+        0 0 20px
+        rgba(112,61,255,0.4);
+
+}
+
+
+.brand-info h2 {
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+
+.brand-info p {
+
+    margin-top: 3px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        var(--text-muted);
+
+}
+
+
+/* NAVIGATION */
+
+.sidebar-nav {
+
+    padding-top:
+        25px;
+
+    flex: 1;
+
+}
+
+
+.nav-label {
+
+    font-size: 9px;
+
+    color:
+        #66617f;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    padding:
+        0 12px 10px;
+
+}
+
+
+.nav-link {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        12px;
+
+    margin-bottom: 5px;
+
+    border: none;
+
+    border-radius:
+        12px;
+
+    background:
+        transparent;
+
+    color:
+        var(--text-muted);
+
+    font-size: 11px;
+
+    text-align: left;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.nav-link i {
+
+    width: 20px;
+
+    font-size: 14px;
+
+}
+
+
+.nav-link:hover {
+
+    color: white;
+
+    background:
+        rgba(124,60,255,0.1);
+
+}
+
+
+.nav-link.active {
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            rgba(108,48,245,0.8),
+            rgba(52,103,255,0.7)
+        );
+
+}
+
+
+/* LOGOUT */
+
+.sidebar-bottom {
+
+    border-top:
+        1px solid
+        var(--border);
+
+    padding-top:
+        15px;
+
+}
+
+
+.logout-btn {
+
+    color:
+        #ff6685;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main-content {
+
+    width: 100%;
+
+    margin-left:
+        250px;
+
+    padding:
+        25px 35px 70px;
+
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom:
+        28px;
+
+}
+
+
+.page-title h1 {
+
+    font-size: 24px;
+
+    margin-bottom:
+        6px;
+
+}
+
+
+.page-title p {
+
+    font-size: 11px;
+
+    color:
+        var(--text-muted);
+
+}
+
+
+.topbar-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.icon-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color:
+        var(--text-muted);
+
+}
+
+
+.profile-mini {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #773cff,
+            #287eff
+        );
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.services-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        28px;
+
+    margin-bottom:
+        25px;
+
+    border:
+        1px solid
+        rgba(124,60,255,0.2);
+
+    border-radius:
+        24px;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            rgba(44,17,105,0.8),
+            rgba(20,44,111,0.65)
+        );
+
+}
+
+
+.services-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    right:
+        -100px;
+
+    top:
+        -150px;
+
+    background:
+        rgba(124,60,255,0.16);
+
+}
+
+
+.services-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width:
+        650px;
+
+}
+
+
+.services-hero h2 {
+
+    font-size:
+        22px;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+.services-hero p {
+
+    max-width:
+        550px;
+
+    color:
+        #c1bdd5;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-container {
+
+    margin-top:
+        20px;
+
+    position: relative;
+
+}
+
+
+.search-container i {
+
+    position: absolute;
+
+    left:
+        16px;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--text-muted);
+
+}
+
+
+.search-input {
+
+    width: 100%;
+
+    padding:
+        13px 15px 13px 45px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    border-radius:
+        12px;
+
+    outline: none;
+
+    background:
+        rgba(0,0,0,0.2);
+
+    color: white;
+
+    font-size:
+        11px;
+
+}
+
+
+.search-input:focus {
+
+    border-color:
+        rgba(124,60,255,0.6);
+
+}
+
+
+/* =====================================================
+   CATEGORY FILTERS
+===================================================== */
+
+.category-filter {
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding-bottom:
+        5px;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.category-filter::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+.filter-btn {
+
+    flex-shrink: 0;
+
+    padding:
+        10px 16px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        30px;
+
+    background:
+        rgba(255,255,255,0.03);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        10px;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.filter-btn:hover {
+
+    color: white;
+
+}
+
+
+.filter-btn.active {
+
+    color: white;
+
+    border-color:
+        transparent;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #7135f5,
+            #337eff
+        );
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.section-title h2 {
+
+    font-size:
+        16px;
+
+}
+
+
+.section-title span {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+}
+
+
+/* =====================================================
+   SERVICES GRID
+===================================================== */
+
+.services-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:
+        14px;
+
+}
+
+
+/* SERVICE CARD */
+
+.service-card {
+
+    position: relative;
+
+    min-height:
+        175px;
+
+    padding:
+        18px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        18px;
+
+    background:
+        var(--bg-card);
+
+    transition:
+        var(--transition);
+
+    cursor: pointer;
+
+}
+
+
+.service-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(124,60,255,0.4);
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(80,40,200,0.18);
+
+}
+
+
+/* ICON */
+
+.service-icon {
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(124,60,255,0.12);
+
+    color:
+        #ad7bff;
+
+    font-size:
+        18px;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.service-card h3 {
+
+    font-size:
+        12px;
+
+    margin-bottom:
+        7px;
+
+}
+
+
+.service-card p {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+    line-height:
+        1.6;
+
+}
+
+
+.service-action {
+
+    position: absolute;
+
+    right:
+        16px;
+
+    bottom:
+        16px;
+
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(124,60,255,0.12);
+
+    color:
+        var(--purple-light);
+
+    font-size:
+        10px;
+
+}
+
+
+/* =====================================================
+   SERVICE COLORS
+===================================================== */
+
+.service-card.data
+.service-icon {
+
+    color:
+        #7b9cff;
+
+}
+
+
+.service-card.airtime
+.service-icon {
+
+    color:
+        #ff72bc;
+
+}
+
+
+.service-card.electricity
+.service-icon {
+
+    color:
+        #ffc857;
+
+}
+
+
+.service-card.results
+.service-icon {
+
+    color:
+        #7cecff;
+
+}
+
+
+.service-card.tv
+.service-icon {
+
+    color:
+        #bd83ff;
+
+}
+
+
+.service-card.internet
+.service-icon {
+
+    color:
+        #4cb6ff;
+
+}
+
+
+.service-card.water
+.service-icon {
+
+    color:
+        #4ddcff;
+
+}
+
+
+.service-card.education
+.service-icon {
+
+    color:
+        #ff9c62;
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp-button {
+
+    position:
+        fixed;
+
+    right:
+        22px;
+
+    bottom:
+        25px;
+
+    width:
+        56px;
+
+    height:
+        56px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        #25D366;
+
+    color:
+        white;
+
+    font-size:
+        26px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(37,211,102,0.3);
+
+    z-index:
+        500;
+
+}
+
+
+/* =====================================================
+   MOBILE NAV
+===================================================== */
+
+.mobile-nav {
+
+    display:
+        none;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media
+(max-width: 1000px) {
+
+    .services-grid {
+
+        grid-template-columns:
+            repeat(3,1fr);
+
     }
 
-    loadComponent('site-header', '../components/header.html');
-    loadComponent('site-footer', '../components/footer.html');
-  </script>
+}
+
+
+@media
+(max-width: 700px) {
+
+    .sidebar {
+
+        display:
+            none;
+
+    }
+
+
+    .main-content {
+
+        margin-left:
+            0;
+
+        padding:
+            18px
+            15px
+            100px;
+
+    }
+
+
+    .topbar {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .page-title h1 {
+
+        font-size:
+            19px;
+
+    }
+
+
+    .page-title p {
+
+        font-size:
+            9px;
+
+    }
+
+
+    .services-hero {
+
+        padding:
+            22px;
+
+    }
+
+
+    .services-hero h2 {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .services-hero p {
+
+        font-size:
+            9px;
+
+    }
+
+
+    .services-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:
+            10px;
+
+    }
+
+
+    .service-card {
+
+        min-height:
+            160px;
+
+        padding:
+            15px;
+
+    }
+
+
+    .service-card h3 {
+
+        font-size:
+            10px;
+
+    }
+
+
+    .service-card p {
+
+        font-size:
+            8px;
+
+    }
+
+
+    .whatsapp-button {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+        right:
+            17px;
+
+        bottom:
+            88px;
+
+        font-size:
+            22px;
+
+    }
+
+
+    .mobile-nav {
+
+        display:
+            flex;
+
+        position:
+            fixed;
+
+        left:
+            10px;
+
+        right:
+            10px;
+
+        bottom:
+            10px;
+
+        height:
+            68px;
+
+        padding:
+            7px;
+
+        border:
+            1px solid
+            rgba(255,255,255,0.1);
+
+        border-radius:
+            20px;
+
+        background:
+            rgba(9,6,39,0.94);
+
+        backdrop-filter:
+            blur(20px);
+
+        z-index:
+            400;
+
+    }
+
+
+    .mobile-nav-item {
+
+        flex:
+            1;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        gap:
+            5px;
+
+        border:
+            none;
+
+        background:
+            none;
+
+        color:
+            #77718f;
+
+        font-size:
+            8px;
+
+    }
+
+
+    .mobile-nav-item i {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .mobile-nav-item.active {
+
+        color:
+            #a875ff;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+
+    <div class="sidebar-brand">
+
+
+        <div class="brand-orb">
+
+            AMG
+
+        </div>
+
+
+        <div class="brand-info">
+
+            <h2>
+                AMG Multi-Digital
+            </h2>
+
+            <p>
+                SERVICES
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <nav class="sidebar-nav">
+
+
+        <div class="nav-label">
+
+            Main Menu
+
+        </div>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('dashboard.html')"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </button>
+
+
+        <button
+            class="nav-link active"
+        >
+
+            <i class="fa-solid fa-grid-2"></i>
+
+            All Services
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('wallet.html')"
+        >
+
+            <i class="fa-solid fa-wallet"></i>
+
+            Wallet
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('transactions.html')"
+        >
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            Transactions
+
+        </button>
+
+
+
+        <div
+            class="nav-label"
+            style="margin-top:25px;"
+        >
+
+            Account
+
+        </div>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('profile.html')"
+        >
+
+            <i class="fa-solid fa-user"></i>
+
+            My Profile
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="showNotification()"
+        >
+
+            <i class="fa-solid fa-bell"></i>
+
+            Notifications
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="openWhatsApp()"
+        >
+
+            <i class="fa-solid fa-headset"></i>
+
+            Support Center
+
+        </button>
+
+
+    </nav>
+
+
+
+    <div class="sidebar-bottom">
+
+
+        <button
+            class="nav-link logout-btn"
+            onclick="logout()"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+
+        <div class="page-title">
+
+            <h1>
+                Our Services
+            </h1>
+
+            <p>
+                Everything you need, all in one place.
+            </p>
+
+        </div>
+
+
+        <div class="topbar-actions">
+
+
+            <button
+                class="icon-button"
+                onclick="showNotification()"
+            >
+
+                <i class="fa-regular fa-bell"></i>
+
+            </button>
+
+
+            <button
+                class="profile-mini"
+                onclick="goTo('profile.html')"
+            >
+
+                KM
+
+            </button>
+
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="services-hero">
+
+
+        <div class="services-hero-content">
+
+
+            <h2>
+                All Your Digital Services
+            </h2>
+
+
+            <p>
+
+                Buy data, airtime, pay bills, check examination
+                results and access essential digital services
+                quickly and securely with AMG Multi-Digital Services.
+
+            </p>
+
+
+
+            <div class="search-container">
+
+
+                <i
+                    class="fa-solid fa-magnifying-glass"
+                ></i>
+
+
+                <input
+                    type="text"
+                    class="search-input"
+                    id="serviceSearch"
+                    placeholder="Search for a service..."
+                    onkeyup="searchServices()"
+                >
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         FILTERS
+    ================================================== -->
+
+    <div class="category-filter">
+
+
+        <button
+            class="filter-btn active"
+            onclick="filterServices('all', this)"
+        >
+
+            All
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterServices('telecom', this)"
+        >
+
+            Telecom
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterServices('bills', this)"
+        >
+
+            Bills
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterServices('education', this)"
+        >
+
+            Education
+
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterServices('entertainment', this)"
+        >
+
+            Entertainment
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         SERVICES
+    ================================================== -->
+
+    <div class="section-title">
+
+
+        <h2>
+            Available Services
+        </h2>
+
+
+        <span id="serviceCount">
+
+            8 Services
+
+        </span>
+
+
+    </div>
+
+
+
+    <section
+        class="services-grid"
+        id="servicesGrid"
+    >
+
+
+        <!-- DATA -->
+
+        <div
+            class="service-card"
+            data-category="telecom"
+            data-name="buy data data bundle"
+            onclick="openService('data')"
+        >
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+
+            <h3>
+                Buy Data
+            </h3>
+
+
+            <p>
+                Purchase affordable data bundles
+                for MTN, Telecel and AirtelTigo.
+            </p>
+
+
+            <div class="service-action">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- AIRTIME -->
+
+        <div
+            class="service-card"
+            data-category="telecom"
+            data-name="airtime mobile top up"
+            onclick="openService('airtime')"
+        >
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-mobile-screen"></i>
+
+            </div>
+
+
+            <h3>
+                Buy Airtime
+            </h3>
+
+
+            <p>
+                Top up your mobile airtime
+                instantly and conveniently.
+            </p>
+
+
+            <div class="service-action">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ELECTRICITY -->
+
+        <div
+            class="service-card"
+            data-category="bills"
+            data-name="electricity prepaid postpaid bill"
+            onclick="openService('electricity')"
+        >
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-bolt"></i>
+
+            </div>
+
+
+            <h3>
+                Electricity
+            </h3>
+
+
+            <p>
+                Pay prepaid and postpaid
+                electricity bills with ease.
+            </p>
+
+
+            <div class="service-action">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- EXAM RESULTS -->
+
+        <div
+            class="service-card"
+            data-category="education"
+            data-name="exam results wassce bece results checker"
+            onclick="openService('results')"
+        >
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+
+            <h3>
+                Exam Results
+            </h3>
+
+
+            <p>
+                Purchase result checkers and
+                access examination results.
+            </p>
+
+
+            <div class="service-action">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TV -->
+
+        <div
+            class="service-card"
+            data-category="entertainment"
+            data-name="tv dstv gotv subscription"
+            onclick="openService('tv')"
+        >
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-tv"></i>
+
+            </div>
+
+
+            <h3>
+                TV Subscription
+            </h3>
+
+
+            <p>
+                Renew your TV subscription
+                quickly and securely.
+            </p>
+
+
+            <div class="service-action">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- INTERNET -->
+
+        <div
+            class="service-card"
+            data-category="telecom"
+            data-name="internet wifi broadband"
+            onclick="openService('internet')"
+        >
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-wifi"></i>
+
+            </div>
+
+
+            <h3>
+                Internet
+            </h3>
+
+
+            <p>
+                Purchase internet and broadband
+                packages for your connection.
+            </p>
+
+
+            <div class="service-action">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WATER -->
+
+        <div
+            class="service-card"
+            data-category="bills"
+            data-name="water bill"
+            onclick="openService('water')"
+        >
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-droplet"></i>
+
+            </div>
+
+
+            <h3>
+                Water Bills
+            </h3>
+
+
+            <p>
+                Pay your water bills
+                conveniently from your wallet.
+            </p>
+
+
+            <div class="service-action">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- EDUCATION -->
+
+        <div
+            class="service-card"
+            data-category="education"
+            data-name="education school fees"
+            onclick="openService('education')"
+        >
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </div>
+
+
+            <h3>
+                Education
+            </h3>
+
+
+            <p>
+                Access available education-related
+                digital services.
+            </p>
+
+
+            <div class="service-action">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MOBILE NAV
+===================================================== -->
+
+<nav class="mobile-nav">
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="goTo('dashboard.html')"
+    >
+
+        <i class="fa-solid fa-house"></i>
+
+        Home
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item active"
+    >
+
+        <i class="fa-solid fa-grid-2"></i>
+
+        Services
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="goTo('transactions.html')"
+    >
+
+        <i class="fa-solid fa-clock-rotate-left"></i>
+
+        History
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="goTo('wallet.html')"
+    >
+
+        <i class="fa-solid fa-wallet"></i>
+
+        Wallet
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="goTo('profile.html')"
+    >
+
+        <i class="fa-solid fa-user"></i>
+
+        Profile
+
+    </button>
+
+
+</nav>
+
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+    href="https://wa.me/2330000000000"
+    target="_blank"
+    class="whatsapp-button"
+>
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<script>
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function goTo(page) {
+
+    window.location.href = page;
+
+}
+
+
+/* =====================================================
+   OPEN SERVICE
+===================================================== */
+
+function openService(service) {
+
+    /*
+        THESE WILL BECOME REAL PAGES:
+
+        data.html
+        airtime.html
+        electricity.html
+        results.html
+        tv.html
+        internet.html
+        water.html
+        education.html
+    */
+
+    const servicePages = {
+
+        data:
+            "data.html",
+
+        airtime:
+            "airtime.html",
+
+        electricity:
+            "electricity.html",
+
+        results:
+            "results.html",
+
+        tv:
+            "tv.html",
+
+        internet:
+            "internet.html",
+
+        water:
+            "water.html",
+
+        education:
+            "education.html"
+
+    };
+
+
+    if (
+        servicePages[service]
+    ) {
+
+        window.location.href =
+            servicePages[service];
+
+    }
+
+}
+
+
+/* =====================================================
+   FILTER SERVICES
+===================================================== */
+
+function filterServices(
+    category,
+    button
+) {
+
+
+    const cards =
+        document.querySelectorAll(
+            ".service-card"
+        );
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".filter-btn"
+        );
+
+
+    buttons.forEach(
+        btn => {
+
+            btn.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    let visibleCount = 0;
+
+
+    cards.forEach(
+        card => {
+
+            const cardCategory =
+                card.dataset.category;
+
+
+            if (
+                category === "all" ||
+                cardCategory === category
+            ) {
+
+                card.style.display =
+                    "block";
+
+                visibleCount++;
+
+            }
+
+            else {
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "serviceCount"
+    ).textContent =
+
+        visibleCount +
+        " Services";
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchServices() {
+
+
+    const searchInput =
+        document
+        .getElementById(
+            "serviceSearch"
+        )
+        .value
+        .toLowerCase();
+
+
+    const cards =
+        document.querySelectorAll(
+            ".service-card"
+        );
+
+
+    let visibleCount = 0;
+
+
+    cards.forEach(
+        card => {
+
+
+            const serviceName =
+                card.dataset.name
+                .toLowerCase();
+
+
+            if (
+                serviceName.includes(
+                    searchInput
+                )
+            ) {
+
+                card.style.display =
+                    "block";
+
+                visibleCount++;
+
+            }
+
+            else {
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "serviceCount"
+    ).textContent =
+
+        visibleCount +
+        " Services";
+
+}
+
+
+/* =====================================================
+   NOTIFICATIONS
+===================================================== */
+
+function showNotification() {
+
+    alert(
+        "You have 1 new AMG notification."
+    );
+
+}
+
+
+/* =====================================================
+   SUPPORT
+===================================================== */
+
+function openWhatsApp() {
+
+    window.open(
+        "https://wa.me/2330000000000",
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout() {
+
+
+    const confirmLogout =
+        confirm(
+            "Are you sure you want to logout?"
+        );
+
+
+    if (
+        confirmLogout
+    ) {
+
+        /*
+            FIREBASE AUTH SIGN OUT
+            WILL BE CONNECTED HERE.
+        */
+
+
+        window.location.href =
+            "index.html";
+
+    }
+
+}
+
+</script>
+
+
 </body>
 </html>
