@@ -1,0 +1,2851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- =========================================
+         BASIC META
+    ========================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050318"
+    >
+
+    <meta
+        name="description"
+        content="AMG Multi-Digital Services Dashboard"
+    >
+
+    <title>Dashboard | AMG Multi-Digital Services</title>
+
+
+    <!-- =========================================
+         GOOGLE FONT
+    ========================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================
+         FONT AWESOME
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =========================================
+         DASHBOARD CSS
+    ========================================== -->
+
+    <style>
+
+        /* =========================================
+           ROOT
+        ========================================== */
+
+        :root {
+
+            --bg-main: #050318;
+
+            --bg-secondary: #08052a;
+
+            --bg-card: rgba(17, 13, 53, 0.72);
+
+            --bg-card-light: rgba(255,255,255,0.045);
+
+            --purple: #7c3cff;
+
+            --purple-light: #a36bff;
+
+            --blue: #327eff;
+
+            --cyan: #16d9ff;
+
+            --pink: #d43cff;
+
+            --white: #ffffff;
+
+            --text-main: #f8f7ff;
+
+            --text-muted: #9d98b8;
+
+            --border:
+                rgba(255,255,255,0.08);
+
+            --success: #20e89b;
+
+            --warning: #ffc857;
+
+            --danger: #ff5577;
+
+            --radius-sm: 12px;
+
+            --radius-md: 18px;
+
+            --radius-lg: 24px;
+
+            --shadow:
+                0 20px 60px
+                rgba(0,0,0,0.25);
+
+            --purple-shadow:
+                0 10px 40px
+                rgba(105,55,255,0.22);
+
+            --transition:
+                all 0.3s ease;
+
+        }
+
+
+        /* =========================================
+           RESET
+        ========================================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family:
+                "Inter",
+                sans-serif;
+
+            color:
+                var(--text-main);
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 0%,
+                    rgba(91,44,255,0.16),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 100% 30%,
+                    rgba(0,180,255,0.08),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    #050318,
+                    #08052a,
+                    #050318
+                );
+
+            overflow-x: hidden;
+
+        }
+
+
+        button,
+        input {
+
+            font-family:
+                inherit;
+
+        }
+
+
+        button {
+
+            cursor: pointer;
+
+        }
+
+
+        a {
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+
+
+        /* =========================================
+           APP LAYOUT
+        ========================================== */
+
+        .app {
+
+            min-height: 100vh;
+
+            display: flex;
+
+        }
+
+
+        /* =========================================
+           DESKTOP SIDEBAR
+        ========================================== */
+
+        .sidebar {
+
+            width: 250px;
+
+            min-height: 100vh;
+
+            position: fixed;
+
+            left: 0;
+
+            top: 0;
+
+            bottom: 0;
+
+            padding: 25px 16px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background:
+                rgba(7,5,29,0.94);
+
+            border-right:
+                1px solid
+                var(--border);
+
+            backdrop-filter:
+                blur(20px);
+
+            z-index: 100;
+
+        }
+
+
+        /* =========================================
+           SIDEBAR BRAND
+        ========================================== */
+
+        .sidebar-brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding:
+                0 10px
+                25px;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+        }
+
+
+        .brand-orb {
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+            font-size: 14px;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    #21165f,
+                    #07051f
+                );
+
+            border:
+                1px solid
+                rgba(125,75,255,0.7);
+
+            box-shadow:
+
+                0 0 20px
+                rgba(112,61,255,0.4);
+
+        }
+
+
+        .brand-info h2 {
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+        }
+
+
+        .brand-info p {
+
+            margin-top: 3px;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            color:
+                var(--text-muted);
+
+        }
+
+
+        /* =========================================
+           SIDEBAR NAV
+        ========================================== */
+
+        .sidebar-nav {
+
+            padding-top: 25px;
+
+            flex: 1;
+
+        }
+
+
+        .nav-label {
+
+            font-size: 9px;
+
+            color:
+                #66617f;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            padding:
+                0 12px
+                10px;
+
+        }
+
+
+        .nav-link {
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding:
+                12px;
+
+            margin-bottom: 5px;
+
+            border-radius:
+                12px;
+
+            border: none;
+
+            background:
+                transparent;
+
+            color:
+                var(--text-muted);
+
+            font-size: 11px;
+
+            text-align: left;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .nav-link i {
+
+            width: 20px;
+
+            font-size: 14px;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: white;
+
+            background:
+                rgba(124,60,255,0.1);
+
+        }
+
+
+        .nav-link.active {
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    rgba(108,48,245,0.8),
+                    rgba(52,103,255,0.7)
+                );
+
+            box-shadow:
+
+                0 8px 25px
+                rgba(82,49,255,0.2);
+
+        }
+
+
+        /* =========================================
+           SIDEBAR BOTTOM
+        ========================================== */
+
+        .sidebar-bottom {
+
+            border-top:
+                1px solid
+                var(--border);
+
+            padding-top:
+                15px;
+
+        }
+
+
+        .logout-btn {
+
+            color:
+                #ff6685;
+
+        }
+
+
+        .logout-btn:hover {
+
+            background:
+                rgba(255,70,110,0.08);
+
+        }
+
+
+        /* =========================================
+           MAIN CONTENT
+        ========================================== */
+
+        .main-content {
+
+            width: 100%;
+
+            margin-left:
+                250px;
+
+            padding:
+                25px 35px 60px;
+
+            max-width:
+                1500px;
+
+        }
+
+
+        /* =========================================
+           TOP HEADER
+        ========================================== */
+
+        .topbar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom:
+                30px;
+
+        }
+
+
+        .welcome-area h1 {
+
+            font-size: 23px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .welcome-area p {
+
+            color:
+                var(--text-muted);
+
+            font-size: 11px;
+
+        }
+
+
+        .topbar-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .icon-button {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                var(--border);
+
+            background:
+                rgba(255,255,255,0.035);
+
+            color:
+                var(--text-muted);
+
+            position: relative;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .icon-button:hover {
+
+            color: white;
+
+            background:
+                rgba(124,60,255,0.12);
+
+        }
+
+
+        .notification-dot {
+
+            position: absolute;
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            top: 8px;
+
+            right: 9px;
+
+            background:
+                #ff4e75;
+
+            border:
+                2px solid
+                #08052a;
+
+        }
+
+
+        .profile-mini {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #773cff,
+                    #287eff
+                );
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================================
+           WALLET CARD
+        ========================================== */
+
+        .wallet-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 25px;
+
+            min-height: 190px;
+
+            border-radius:
+                var(--radius-lg);
+
+            background:
+
+                linear-gradient(
+                    120deg,
+                    #241064,
+                    #3c16a0 45%,
+                    #1656b9
+                );
+
+            box-shadow:
+
+                0 20px 60px
+                rgba(65,40,180,0.25);
+
+        }
+
+
+        .wallet-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            right: -100px;
+
+            top: -150px;
+
+            background:
+                rgba(255,255,255,0.07);
+
+        }
+
+
+        .wallet-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+
+            height: 180px;
+
+            border-radius: 50%;
+
+            right: 40px;
+
+            bottom: -100px;
+
+            background:
+                rgba(0,220,255,0.08);
+
+        }
+
+
+        .wallet-top {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .wallet-label {
+
+            font-size: 11px;
+
+            opacity: 0.75;
+
+        }
+
+
+        .wallet-eye {
+
+            border: none;
+
+            background: none;
+
+            color: white;
+
+            opacity: 0.7;
+
+        }
+
+
+        .wallet-balance {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-top: 15px;
+
+            font-size: 32px;
+
+            font-weight: 800;
+
+        }
+
+
+        .wallet-account {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-top: 6px;
+
+            font-size: 10px;
+
+            opacity: 0.7;
+
+        }
+
+
+        .wallet-actions {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .wallet-btn {
+
+            padding:
+                10px 18px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            background:
+                rgba(255,255,255,0.1);
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .wallet-btn.primary {
+
+            background:
+                rgba(255,255,255,0.92);
+
+            color:
+                #311075;
+
+        }
+
+
+        /* =========================================
+           STATS
+        ========================================== */
+
+        .stats-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 15px;
+
+            margin-top: 18px;
+
+        }
+
+
+        .stat-card {
+
+            padding: 18px;
+
+            border-radius:
+                var(--radius-md);
+
+            border:
+                1px solid
+                var(--border);
+
+            background:
+                var(--bg-card);
+
+        }
+
+
+        .stat-icon {
+
+            width: 34px;
+
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background:
+                rgba(124,60,255,0.12);
+
+            color:
+                var(--purple-light);
+
+            font-size: 13px;
+
+        }
+
+
+        .stat-card h4 {
+
+            margin-top: 13px;
+
+            font-size: 19px;
+
+        }
+
+
+        .stat-card p {
+
+            margin-top: 4px;
+
+            color:
+                var(--text-muted);
+
+            font-size: 9px;
+
+        }
+
+
+        /* =========================================
+           SECTION HEADER
+        ========================================== */
+
+        .section-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin:
+                30px 0
+                15px;
+
+        }
+
+
+        .section-header h2 {
+
+            font-size: 16px;
+
+        }
+
+
+        .view-all {
+
+            border: none;
+
+            background: none;
+
+            color:
+                var(--purple-light);
+
+            font-size: 10px;
+
+        }
+
+
+        /* =========================================
+           SERVICES
+        ========================================== */
+
+        .services-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 12px;
+
+        }
+
+
+        .service-card {
+
+            padding: 17px;
+
+            min-height: 115px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                var(--radius-md);
+
+            background:
+                var(--bg-card);
+
+            transition:
+                var(--transition);
+
+            cursor: pointer;
+
+        }
+
+
+        .service-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(124,60,255,0.35);
+
+            box-shadow:
+                var(--purple-shadow);
+
+        }
+
+
+        .service-card-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 11px;
+
+            color:
+                #b27cff;
+
+            background:
+                rgba(124,60,255,0.12);
+
+            font-size: 15px;
+
+        }
+
+
+        .service-card h3 {
+
+            margin-top: 13px;
+
+            font-size: 11px;
+
+        }
+
+
+        .service-card p {
+
+            margin-top: 4px;
+
+            font-size: 8px;
+
+            color:
+                var(--text-muted);
+
+        }
+
+
+        /* =========================================
+           BOTTOM GRID
+        ========================================== */
+
+        .bottom-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr;
+
+            gap: 18px;
+
+        }
+
+
+        /* =========================================
+           TRANSACTIONS
+        ========================================== */
+
+        .transactions-card {
+
+            padding: 20px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                var(--radius-lg);
+
+            background:
+                var(--bg-card);
+
+        }
+
+
+        .transaction {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding:
+                14px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.05);
+
+        }
+
+
+        .transaction:last-child {
+
+            border-bottom:
+                none;
+
+        }
+
+
+        .transaction-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 11px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(124,60,255,0.12);
+
+            color:
+                var(--purple-light);
+
+        }
+
+
+        .transaction-info {
+
+            flex: 1;
+
+        }
+
+
+        .transaction-info h4 {
+
+            font-size: 10px;
+
+        }
+
+
+        .transaction-info p {
+
+            margin-top: 4px;
+
+            color:
+                var(--text-muted);
+
+            font-size: 8px;
+
+        }
+
+
+        .transaction-amount {
+
+            text-align: right;
+
+        }
+
+
+        .transaction-amount strong {
+
+            display: block;
+
+            font-size: 10px;
+
+        }
+
+
+        .transaction-amount span {
+
+            font-size: 8px;
+
+            color:
+                var(--success);
+
+        }
+
+
+        /* =========================================
+           ANNOUNCEMENT CARD
+        ========================================== */
+
+        .announcement-card {
+
+            padding: 20px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                var(--radius-lg);
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(53,25,133,0.5),
+                    rgba(15,10,49,0.7)
+                );
+
+        }
+
+
+        .announcement-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(124,60,255,0.18);
+
+            color:
+                #b27cff;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .announcement-card h3 {
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .announcement-card p {
+
+            color:
+                var(--text-muted);
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .announcement-btn {
+
+            margin-top: 18px;
+
+            width: 100%;
+
+            padding: 11px;
+
+            border-radius: 10px;
+
+            border: none;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #7135f5,
+                    #337eff
+                );
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================================
+           WHATSAPP BUTTON
+        ========================================== */
+
+        .whatsapp-button {
+
+            position: fixed;
+
+            right: 22px;
+
+            bottom: 25px;
+
+            width: 56px;
+
+            height: 56px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                #25D366;
+
+            color: white;
+
+            font-size: 26px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(37,211,102,0.3);
+
+            z-index: 500;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .whatsapp-button:hover {
+
+            transform:
+                scale(1.08);
+
+        }
+
+
+        /* =========================================
+           MOBILE NAVIGATION
+        ========================================== */
+
+        .mobile-nav {
+
+            display: none;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media
+        (max-width: 900px) {
+
+            .services-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+            }
+
+
+            .bottom-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media
+        (max-width: 700px) {
+
+            .sidebar {
+
+                display: none;
+
+            }
+
+
+            .main-content {
+
+                margin-left: 0;
+
+                padding:
+                    18px
+                    15px
+                    100px;
+
+            }
+
+
+            .topbar {
+
+                margin-bottom:
+                    20px;
+
+            }
+
+
+            .welcome-area h1 {
+
+                font-size: 18px;
+
+            }
+
+
+            .welcome-area p {
+
+                font-size: 9px;
+
+            }
+
+
+            .wallet-card {
+
+                min-height:
+                    190px;
+
+                padding:
+                    20px;
+
+            }
+
+
+            .wallet-balance {
+
+                font-size: 28px;
+
+            }
+
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+                gap: 8px;
+
+            }
+
+
+            .stat-card {
+
+                padding: 12px;
+
+            }
+
+
+            .stat-card h4 {
+
+                font-size: 13px;
+
+            }
+
+
+            .stat-card p {
+
+                font-size: 7px;
+
+            }
+
+
+            .services-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+                gap: 8px;
+
+            }
+
+
+            .service-card {
+
+                min-height:
+                    100px;
+
+                padding:
+                    12px;
+
+            }
+
+
+            .service-card h3 {
+
+                font-size: 9px;
+
+            }
+
+
+            .service-card p {
+
+                font-size: 7px;
+
+            }
+
+
+            .bottom-grid {
+
+                display: block;
+
+            }
+
+
+            .announcement-card {
+
+                margin-top:
+                    18px;
+
+            }
+
+
+            .mobile-nav {
+
+                display: flex;
+
+                position: fixed;
+
+                left: 10px;
+
+                right: 10px;
+
+                bottom: 10px;
+
+                height: 68px;
+
+                padding:
+                    7px;
+
+                border:
+                    1px solid
+                    rgba(255,255,255,0.1);
+
+                border-radius:
+                    20px;
+
+                background:
+                    rgba(9,6,39,0.92);
+
+                backdrop-filter:
+                    blur(20px);
+
+                z-index: 400;
+
+                box-shadow:
+                    0 10px 40px
+                    rgba(0,0,0,0.4);
+
+            }
+
+
+            .mobile-nav-item {
+
+                flex: 1;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: center;
+
+                justify-content: center;
+
+                gap: 5px;
+
+                color:
+                    #77718f;
+
+                border: none;
+
+                background: none;
+
+                font-size: 8px;
+
+            }
+
+
+            .mobile-nav-item i {
+
+                font-size: 16px;
+
+            }
+
+
+            .mobile-nav-item.active {
+
+                color:
+                    #a875ff;
+
+            }
+
+
+            .mobile-nav-item.active i {
+
+                filter:
+                    drop-shadow(
+                        0 0 7px
+                        rgba(150,90,255,0.8)
+                    );
+
+            }
+
+
+            .whatsapp-button {
+
+                right: 17px;
+
+                bottom: 90px;
+
+                width: 48px;
+
+                height: 48px;
+
+                font-size: 22px;
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =========================================
+         DESKTOP SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-brand">
+
+
+            <div class="brand-orb">
+
+                AMG
+
+            </div>
+
+
+            <div class="brand-info">
+
+                <h2>
+                    AMG Multi-Digital
+                </h2>
+
+                <p>
+                    SERVICES
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <div class="nav-label">
+                Main Menu
+            </div>
+
+
+            <button
+                class="nav-link active"
+                onclick="navigateTo('dashboard')"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </button>
+
+
+            <button
+                class="nav-link"
+                onclick="navigateTo('services')"
+            >
+
+                <i class="fa-solid fa-grid-2"></i>
+
+                All Services
+
+            </button>
+
+
+            <button
+                class="nav-link"
+                onclick="navigateTo('wallet')"
+            >
+
+                <i class="fa-solid fa-wallet"></i>
+
+                Wallet
+
+            </button>
+
+
+            <button
+                class="nav-link"
+                onclick="navigateTo('transactions')"
+            >
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                Transactions
+
+            </button>
+
+
+            <div
+                class="nav-label"
+                style="margin-top:25px;"
+            >
+
+                Account
+
+            </div>
+
+
+            <button
+                class="nav-link"
+                onclick="navigateTo('profile')"
+            >
+
+                <i class="fa-solid fa-user"></i>
+
+                My Profile
+
+            </button>
+
+
+            <button
+                class="nav-link"
+                onclick="navigateTo('notifications')"
+            >
+
+                <i class="fa-solid fa-bell"></i>
+
+                Notifications
+
+            </button>
+
+
+            <button
+                class="nav-link"
+                onclick="navigateTo('support')"
+            >
+
+                <i class="fa-solid fa-headset"></i>
+
+                Support Center
+
+            </button>
+
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+
+            <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="topbar">
+
+
+            <div class="welcome-area">
+
+                <h1>
+                    Hello, Kwame! 👋
+                </h1>
+
+                <p>
+                    Good to see you again.
+                    Here's what's happening with your account.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+                <button
+                    class="icon-button"
+                    onclick="showNotifications()"
+                >
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span
+                        class="notification-dot"
+                    ></span>
+
+                </button>
+
+
+                <button
+                    class="profile-mini"
+                    onclick="navigateTo('profile')"
+                >
+
+                    KM
+
+                </button>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =====================================
+             WALLET
+        ====================================== -->
+
+        <section class="wallet-card">
+
+
+            <div class="wallet-top">
+
+
+                <span class="wallet-label">
+
+                    Wallet Balance
+
+                </span>
+
+
+                <button
+                    class="wallet-eye"
+                    onclick="toggleBalance()"
+                >
+
+                    <i
+                        id="balanceEye"
+                        class="fa-solid fa-eye"
+                    ></i>
+
+                </button>
+
+
+            </div>
+
+
+            <div
+                class="wallet-balance"
+                id="walletBalance"
+            >
+
+                GH₵ 250.00
+
+            </div>
+
+
+            <div class="wallet-account">
+
+                AMG Wallet •••• 4821
+
+            </div>
+
+
+            <div class="wallet-actions">
+
+
+                <button
+                    class="wallet-btn primary"
+                    onclick="addMoney()"
+                >
+
+                    <i
+                        class="fa-solid fa-plus"
+                    ></i>
+
+                    Add Money
+
+                </button>
+
+
+                <button
+                    class="wallet-btn"
+                    onclick="withdrawMoney()"
+                >
+
+                    <i
+                        class="fa-solid fa-arrow-up-right-from-square"
+                    ></i>
+
+                    Withdraw
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             STATS
+        ====================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon">
+
+                    <i
+                        class="fa-solid fa-arrow-trend-up"
+                    ></i>
+
+                </div>
+
+
+                <h4>
+                    24
+                </h4>
+
+
+                <p>
+                    Transactions This Month
+                </p>
+
+
+            </div>
+
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon">
+
+                    <i
+                        class="fa-solid fa-check"
+                    ></i>
+
+                </div>
+
+
+                <h4>
+                    98%
+                </h4>
+
+
+                <p>
+                    Success Rate
+                </p>
+
+
+            </div>
+
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon">
+
+                    <i
+                        class="fa-solid fa-coins"
+                    ></i>
+
+                </div>
+
+
+                <h4>
+                    GH₵ 1,420
+                </h4>
+
+
+                <p>
+                    Total Spent
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             SERVICES
+        ====================================== -->
+
+        <div class="section-header">
+
+
+            <h2>
+                Quick Services
+            </h2>
+
+
+            <button
+                class="view-all"
+                onclick="navigateTo('services')"
+            >
+
+                View All
+
+                <i
+                    class="fa-solid fa-arrow-right"
+                ></i>
+
+            </button>
+
+
+        </div>
+
+
+        <section class="services-grid">
+
+
+            <!-- DATA -->
+
+            <div
+                class="service-card"
+                onclick="openService('Buy Data')"
+            >
+
+                <div class="service-card-icon">
+
+                    <i
+                        class="fa-solid fa-database"
+                    ></i>
+
+                </div>
+
+                <h3>
+                    Buy Data
+                </h3>
+
+                <p>
+                    MTN • Telecel • AT
+                </p>
+
+            </div>
+
+
+            <!-- AIRTIME -->
+
+            <div
+                class="service-card"
+                onclick="openService('Buy Airtime')"
+            >
+
+                <div class="service-card-icon">
+
+                    <i
+                        class="fa-solid fa-mobile-screen"
+                    ></i>
+
+                </div>
+
+                <h3>
+                    Airtime
+                </h3>
+
+                <p>
+                    Instant top-up
+                </p>
+
+            </div>
+
+
+            <!-- ELECTRICITY -->
+
+            <div
+                class="service-card"
+                onclick="openService('Electricity')"
+            >
+
+                <div class="service-card-icon">
+
+                    <i
+                        class="fa-solid fa-bolt"
+                    ></i>
+
+                </div>
+
+                <h3>
+                    Electricity
+                </h3>
+
+                <p>
+                    Prepaid & Postpaid
+                </p>
+
+            </div>
+
+
+            <!-- RESULTS -->
+
+            <div
+                class="service-card"
+                onclick="openService('Exam Results')"
+            >
+
+                <div class="service-card-icon">
+
+                    <i
+                        class="fa-solid fa-graduation-cap"
+                    ></i>
+
+                </div>
+
+                <h3>
+                    Exam Results
+                </h3>
+
+                <p>
+                    Check results
+                </p>
+
+            </div>
+
+
+            <!-- TV -->
+
+            <div
+                class="service-card"
+                onclick="openService('TV Subscription')"
+            >
+
+                <div class="service-card-icon">
+
+                    <i
+                        class="fa-solid fa-tv"
+                    ></i>
+
+                </div>
+
+                <h3>
+                    TV
+                </h3>
+
+                <p>
+                    Renew subscription
+                </p>
+
+            </div>
+
+
+            <!-- INTERNET -->
+
+            <div
+                class="service-card"
+                onclick="openService('Internet')"
+            >
+
+                <div class="service-card-icon">
+
+                    <i
+                        class="fa-solid fa-wifi"
+                    ></i>
+
+                </div>
+
+                <h3>
+                    Internet
+                </h3>
+
+                <p>
+                    Internet bundles
+                </p>
+
+            </div>
+
+
+            <!-- WATER -->
+
+            <div
+                class="service-card"
+                onclick="openService('Water')"
+            >
+
+                <div class="service-card-icon">
+
+                    <i
+                        class="fa-solid fa-droplet"
+                    ></i>
+
+                </div>
+
+                <h3>
+                    Water
+                </h3>
+
+                <p>
+                    Pay water bills
+                </p>
+
+            </div>
+
+
+            <!-- MORE -->
+
+            <div
+                class="service-card"
+                onclick="navigateTo('services')"
+            >
+
+                <div class="service-card-icon">
+
+                    <i
+                        class="fa-solid fa-ellipsis"
+                    ></i>
+
+                </div>
+
+                <h3>
+                    More
+                </h3>
+
+                <p>
+                    Explore services
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             BOTTOM CONTENT
+        ====================================== -->
+
+        <div class="bottom-grid">
+
+
+            <!-- =================================
+                 TRANSACTIONS
+            ================================== -->
+
+            <section>
+
+
+                <div class="section-header">
+
+                    <h2>
+                        Recent Transactions
+                    </h2>
+
+                    <button
+                        class="view-all"
+                        onclick="navigateTo('transactions')"
+                    >
+
+                        View All
+
+                    </button>
+
+                </div>
+
+
+                <div class="transactions-card">
+
+
+                    <!-- TRANSACTION 1 -->
+
+                    <div class="transaction">
+
+
+                        <div class="transaction-icon">
+
+                            <i
+                                class="fa-solid fa-database"
+                            ></i>
+
+                        </div>
+
+
+                        <div class="transaction-info">
+
+                            <h4>
+                                MTN Data 1GB
+                            </h4>
+
+                            <p>
+                                Today • 10:30 AM
+                            </p>
+
+                        </div>
+
+
+                        <div class="transaction-amount">
+
+                            <strong>
+                                - GH₵ 7.50
+                            </strong>
+
+                            <span>
+                                Successful
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- TRANSACTION 2 -->
+
+                    <div class="transaction">
+
+
+                        <div class="transaction-icon">
+
+                            <i
+                                class="fa-solid fa-mobile-screen"
+                            ></i>
+
+                        </div>
+
+
+                        <div class="transaction-info">
+
+                            <h4>
+                                Airtime Top Up
+                            </h4>
+
+                            <p>
+                                Yesterday • 09:15 AM
+                            </p>
+
+                        </div>
+
+
+                        <div class="transaction-amount">
+
+                            <strong>
+                                - GH₵ 10.00
+                            </strong>
+
+                            <span>
+                                Successful
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- TRANSACTION 3 -->
+
+                    <div class="transaction">
+
+
+                        <div class="transaction-icon">
+
+                            <i
+                                class="fa-solid fa-bolt"
+                            ></i>
+
+                        </div>
+
+
+                        <div class="transaction-info">
+
+                            <h4>
+                                Electricity Top Up
+                            </h4>
+
+                            <p>
+                                24 May • 08:45 AM
+                            </p>
+
+                        </div>
+
+
+                        <div class="transaction-amount">
+
+                            <strong>
+                                - GH₵ 50.00
+                            </strong>
+
+                            <span>
+                                Successful
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 ANNOUNCEMENT
+            ================================== -->
+
+            <section>
+
+
+                <div class="section-header">
+
+                    <h2>
+                        AMG Updates
+                    </h2>
+
+                </div>
+
+
+                <div class="announcement-card">
+
+
+                    <div class="announcement-icon">
+
+                        <i
+                            class="fa-solid fa-gift"
+                        ></i>
+
+                    </div>
+
+
+                    <h3>
+                        Welcome to AMG!
+                    </h3>
+
+
+                    <p>
+
+                        Enjoy fast, secure and reliable
+                        digital services all in one place.
+
+                        More exciting services are coming
+                        soon to AMG Multi-Digital Services.
+
+                    </p>
+
+
+                    <button
+                        class="announcement-btn"
+                        onclick="navigateTo('services')"
+                    >
+
+                        Explore Services
+
+                    </button>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================================
+     MOBILE BOTTOM NAVIGATION
+========================================== -->
+
+<nav class="mobile-nav">
+
+
+    <button
+        class="mobile-nav-item active"
+        onclick="navigateTo('dashboard')"
+    >
+
+        <i
+            class="fa-solid fa-house"
+        ></i>
+
+        Home
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="navigateTo('services')"
+    >
+
+        <i
+            class="fa-solid fa-grid-2"
+        ></i>
+
+        Services
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="navigateTo('transactions')"
+    >
+
+        <i
+            class="fa-solid fa-clock-rotate-left"
+        ></i>
+
+        History
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="navigateTo('wallet')"
+    >
+
+        <i
+            class="fa-solid fa-wallet"
+        ></i>
+
+        Wallet
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="navigateTo('profile')"
+    >
+
+        <i
+            class="fa-solid fa-user"
+        ></i>
+
+        Profile
+
+    </button>
+
+
+</nav>
+
+
+
+<!-- =========================================
+     WHATSAPP SUPPORT
+========================================== -->
+
+<a
+    href="https://wa.me/2330000000000"
+    target="_blank"
+    class="whatsapp-button"
+    aria-label="Contact AMG Support"
+>
+
+    <i
+        class="fa-brands fa-whatsapp"
+    ></i>
+
+</a>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script>
+
+
+    /* =========================================
+       WALLET BALANCE TOGGLE
+    ========================================== */
+
+    let balanceVisible = true;
+
+
+    function toggleBalance() {
+
+        const balance =
+            document.getElementById(
+                "walletBalance"
+            );
+
+
+        const icon =
+            document.getElementById(
+                "balanceEye"
+            );
+
+
+        if (balanceVisible) {
+
+            balance.textContent =
+                "GH₵ ••••••";
+
+
+            icon.className =
+                "fa-solid fa-eye-slash";
+
+
+            balanceVisible = false;
+
+        }
+
+        else {
+
+            balance.textContent =
+                "GH₵ 250.00";
+
+
+            icon.className =
+                "fa-solid fa-eye";
+
+
+            balanceVisible = true;
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       ADD MONEY
+    ========================================== */
+
+    function addMoney() {
+
+        alert(
+            "Add Money / Paystack payment flow will be connected here."
+        );
+
+    }
+
+
+
+    /* =========================================
+       WITHDRAW
+    ========================================== */
+
+    function withdrawMoney() {
+
+        alert(
+            "Withdrawal system will be connected here."
+        );
+
+    }
+
+
+
+    /* =========================================
+       SERVICE
+    ========================================== */
+
+    function openService(
+        serviceName
+    ) {
+
+        alert(
+            serviceName +
+            " service page will be connected here."
+        );
+
+    }
+
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================== */
+
+    function navigateTo(
+        page
+    ) {
+
+        console.log(
+            "Navigate to:",
+            page
+        );
+
+
+        /*
+            LATER WE WILL CONNECT:
+
+            dashboard
+            services
+            wallet
+            transactions
+            profile
+            notifications
+            support
+
+            Example:
+
+            window.location.href =
+                page + ".html";
+
+        */
+
+
+        if (
+            page ===
+            "dashboard"
+        ) {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+        else {
+
+            alert(
+                page +
+                " page will be built next."
+            );
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       NOTIFICATIONS
+    ========================================== */
+
+    function showNotifications() {
+
+        alert(
+            "You have 1 new AMG notification."
+        );
+
+    }
+
+
+
+    /* =========================================
+       LOGOUT
+    ========================================== */
+
+    function logout() {
+
+        const confirmLogout =
+            confirm(
+                "Are you sure you want to logout?"
+            );
+
+
+        if (
+            confirmLogout
+        ) {
+
+            /*
+                FIREBASE SIGN OUT
+                WILL BE CONNECTED HERE.
+
+                firebase.auth().signOut()
+
+                Then:
+
+                window.location.href =
+                    "index.html";
+            */
+
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    }
+
+
+</script>
+
+
+</body>
+</html>
