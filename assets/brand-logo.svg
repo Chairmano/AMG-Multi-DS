@@ -1,0 +1,13 @@
+<svg width="240" height="80" viewBox="0 0 240 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="80" rx="20" fill="#07111F"/>
+  <rect x="16" y="16" width="48" height="48" rx="12" fill="url(#paint0_linear_0_1)"/>
+  <path d="M32 28L44 40L32 52" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="38" fill="#F5F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">AMG</text>
+  <text x="78" y="58" fill="#8EC0FF" font-family="Segoe UI, Arial, sans-serif" font-size="14">Multi-DS</text>
+  <defs>
+    <linearGradient id="paint0_linear_0_1" x1="16" y1="16" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F8CFF"/>
+      <stop offset="1" stop-color="#7C5CFF"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AMG Multi-DS builds digital products, marketing systems, and growth experiences for modern brands." />
+  <meta name="author" content="AMG Multi-DS" />
+  <title>AMG Multi-DS | Digital Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <header class="hero">
+    <div class="hero-content">
+      <div>
+        <span class="eyebrow">Multi-digital platform studio</span>
+        <h1>Launch faster with a connected digital presence.</h1>
+        <p>We combine strategy, web experiences, automation, and brand storytelling into one platform that helps teams grow with clarity and momentum.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="pages/contact.html">Book a discovery call</a>
+          <a class="btn secondary" href="pages/services.html">Explore services</a>
+        </div>
+        <ul class="hero-points">
+          <li>Web design</li>
+          <li>Marketing systems</li>
+          <li>Automation</li>
+          <li>Analytics</li>
+        </ul>
+      </div>
+
+      <div class="hero-card">
+        <img src="assets/hero-illustration.svg" alt="Digital platform illustration" />
+        <div class="card-title">Platform snapshot</div>
+        <div class="stat-row">
+          <span>Launches supported</span>
+          <span class="stat-value">120+</span>
+        </div>
+        <div class="stat-row">
+          <span>Average time to launch</span>
+          <span class="stat-value">14 days</span>
+        </div>
+        <div class="stat-row">
+          <span>Client satisfaction</span>
+          <span class="stat-value">98%</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="services">
+      <h2>Services built for modern growth</h2>
+      <p class="lead">From polished web experiences to automated campaigns, every service is engineered to feel connected, fast, and measurable.</p>
+      <div class="service-grid">
+        <article class="card">
+          <h3>Digital strategy</h3>
+          <p>Brand positioning, audience planning, and content systems that create a strong foundation.</p>
+        </article>
+        <article class="card">
+          <h3>Web experiences</h3>
+          <p>High-converting landing pages, product showcases, and responsive multi-page platforms.</p>
+        </article>
+        <article class="card">
+          <h3>Growth automation</h3>
+          <p>Lead capture, follow-up flows, and reporting that keep your team focused on momentum.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" id="about">
+      <div class="about-grid">
+        <div>
+          <h2>Why teams choose AMG Multi-DS</h2>
+          <p class="lead">We simplify the digital stack so your brand can move with confidence across web, content, and customer touchpoints.</p>
+          <div class="pillar-list">
+            <div class="pillar">Clear messaging and visual systems that feel premium.</div>
+            <div class="pillar">Fast implementation with a collaborative delivery process.</div>
+            <div class="pillar">Built-in performance tracking and practical next steps.</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="card-title">Outcome focus</div>
+          <div class="stat-row">
+            <span>Engagement uplift</span>
+            <span class="stat-value">+42%</span>
+          </div>
+          <div class="stat-row">
+            <span>Lead conversion</span>
+            <span class="stat-value">+31%</span>
+          </div>
+          <div class="stat-row">
+            <span>Retention rate</span>
+            <span class="stat-value">89%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta" id="contact">
+      <div class="contact-card">
+        <div>
+          <h2>Let’s build your next digital chapter</h2>
+          <p class="lead">Share your goals and we’ll shape a platform that looks sharp, performs well, and scales with your vision.</p>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+          <input type="email" id="email" name="email" placeholder="Your email" required />
+          <textarea id="message" name="message" rows="4" placeholder="Tell us about your project" required></textarea>
+          <button class="btn primary" type="submit">Request a proposal</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    async function loadComponent(targetId, file) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error('Load failed');
+        target.innerHTML = await response.text();
+      } catch (error) {
+        target.innerHTML = '<p>Content unavailable.</p>';
+      }
+    }
+
+    loadComponent('site-header', '../components/header.html');
+    loadComponent('site-footer', '../components/footer.html');
+
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        alert(`Thanks, ${name || 'friend'}! We will reach out shortly.`);
+        form.reset();
+      });
+    }
+  </script>
+</body>
+</html>

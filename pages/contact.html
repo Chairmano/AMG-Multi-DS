@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | AMG Multi-DS</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell">
+    <h1>Contact us</h1>
+    <p class="lead">Tell us what you are building and we will help shape the next step.</p>
+    <div class="contact-card">
+      <form class="contact-form" id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+        <textarea id="message" name="message" rows="4" placeholder="Tell us about your project" required></textarea>
+        <button class="btn primary" type="submit">Send request</button>
+      </form>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script>
+    async function loadComponent(targetId, file) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error('Load failed');
+        target.innerHTML = await response.text();
+      } catch (error) {
+        target.innerHTML = '<p>Content unavailable.</p>';
+      }
+    }
+
+    loadComponent('site-header', '../components/header.html');
+    loadComponent('site-footer', '../components/footer.html');
+
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        alert(`Thanks, ${name || 'friend'}! We will reach out shortly.`);
+        form.reset();
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | AMG Multi-DS</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell">
+    <h1>Services</h1>
+    <p class="lead">We design, build, and scale digital growth systems for ambitious brands.</p>
+    <div class="service-grid">
+      <article class="card">
+        <h3>Brand systems</h3>
+        <p>Unified messaging, visuals, and positioning that create instant recognition.</p>
+      </article>
+      <article class="card">
+        <h3>Conversion pages</h3>
+        <p>Landing experiences that guide attention from first touch to action.</p>
+      </article>
+      <article class="card">
+        <h3>Campaign automation</h3>
+        <p>Lifecycle flows, CRM follow-up, and reporting for visible growth.</p>
+      </article>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script>
+    async function loadComponent(targetId, file) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error('Load failed');
+        target.innerHTML = await response.text();
+      } catch (error) {
+        target.innerHTML = '<p>Content unavailable.</p>';
+      }
+    }
+
+    loadComponent('site-header', '../components/header.html');
+    loadComponent('site-footer', '../components/footer.html');
+  </script>
+</body>
+</html>
