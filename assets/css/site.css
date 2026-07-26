@@ -1,0 +1,19 @@
+:root {
+  --primary: #4f8cff;
+  --background: #07111f;
+  --text: #f5f7fb;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 1rem;
+}
