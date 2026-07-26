@@ -1,0 +1,3500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050318"
+    >
+
+    <title>
+        Buy Data | AMG Multi-Digital Services
+    </title>
+
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+
+    --bg-main: #050318;
+
+    --bg-secondary: #08052a;
+
+    --bg-card:
+        rgba(17, 13, 53, 0.72);
+
+    --purple: #7c3cff;
+
+    --purple-light: #a36bff;
+
+    --blue: #327eff;
+
+    --cyan: #16d9ff;
+
+    --white: #ffffff;
+
+    --text-main: #f8f7ff;
+
+    --text-muted: #9d98b8;
+
+    --border:
+        rgba(255,255,255,0.08);
+
+    --success: #20e89b;
+
+    --danger: #ff5577;
+
+    --warning: #ffc857;
+
+    --radius:
+        20px;
+
+    --transition:
+        all 0.3s ease;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    color:
+        var(--text-main);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(91,44,255,0.16),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 100% 30%,
+            rgba(0,180,255,0.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #050318,
+            #08052a,
+            #050318
+        );
+
+    overflow-x: hidden;
+
+}
+
+
+button,
+input,
+select {
+
+    font-family:
+        inherit;
+
+}
+
+
+button {
+
+    cursor: pointer;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+
+    min-height: 100vh;
+
+    display: flex;
+
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+
+    width: 250px;
+
+    min-height: 100vh;
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    padding:
+        25px 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        rgba(7,5,29,0.94);
+
+    border-right:
+        1px solid
+        var(--border);
+
+    backdrop-filter:
+        blur(20px);
+
+    z-index: 100;
+
+}
+
+
+/* BRAND */
+
+.sidebar-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        0 10px 25px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.brand-orb {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #21165f,
+            #07051f
+        );
+
+    border:
+        1px solid
+        rgba(125,75,255,0.7);
+
+    box-shadow:
+
+        0 0 20px
+        rgba(112,61,255,0.4);
+
+}
+
+
+.brand-info h2 {
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+
+.brand-info p {
+
+    margin-top: 3px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        var(--text-muted);
+
+}
+
+
+/* NAV */
+
+.sidebar-nav {
+
+    padding-top:
+        25px;
+
+    flex: 1;
+
+}
+
+
+.nav-label {
+
+    font-size: 9px;
+
+    color:
+        #66617f;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    padding:
+        0 12px 10px;
+
+}
+
+
+.nav-link {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        12px;
+
+    margin-bottom: 5px;
+
+    border: none;
+
+    border-radius:
+        12px;
+
+    background:
+        transparent;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        11px;
+
+    text-align:
+        left;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.nav-link i {
+
+    width:
+        20px;
+
+}
+
+
+.nav-link:hover {
+
+    color:
+        white;
+
+    background:
+        rgba(124,60,255,0.1);
+
+}
+
+
+.nav-link.active {
+
+    color:
+        white;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            rgba(108,48,245,0.8),
+            rgba(52,103,255,0.7)
+        );
+
+}
+
+
+/* LOGOUT */
+
+.sidebar-bottom {
+
+    border-top:
+        1px solid
+        var(--border);
+
+    padding-top:
+        15px;
+
+}
+
+
+.logout-btn {
+
+    color:
+        #ff6685;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main-content {
+
+    width:
+        100%;
+
+    margin-left:
+        250px;
+
+    padding:
+        25px 35px 70px;
+
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.back-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        10px;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.back-button:hover {
+
+    color:
+        white;
+
+}
+
+
+.page-title h1 {
+
+    font-size:
+        24px;
+
+    margin-bottom:
+        6px;
+
+}
+
+
+.page-title p {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        11px;
+
+}
+
+
+.topbar-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.icon-button {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color:
+        var(--text-muted);
+
+}
+
+
+.profile-mini {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #773cff,
+            #287eff
+        );
+
+    color:
+        white;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =====================================================
+   PAGE GRID
+===================================================== */
+
+.purchase-layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(300px, 0.8fr);
+
+    gap:
+        20px;
+
+    align-items:
+        start;
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+
+    padding:
+        22px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--bg-card);
+
+}
+
+
+/* =====================================================
+   CARD TITLE
+===================================================== */
+
+.card-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.card-header-icon {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(124,60,255,0.12);
+
+    color:
+        var(--purple-light);
+
+}
+
+
+.card-header h2 {
+
+    font-size:
+        15px;
+
+}
+
+
+.card-header p {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.form-group {
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.form-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        9px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+    color:
+        #d5d1e6;
+
+}
+
+
+.form-label span {
+
+    color:
+        var(--danger);
+
+}
+
+
+.form-input {
+
+    width:
+        100%;
+
+    padding:
+        13px 14px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        11px;
+
+    outline:
+        none;
+
+    background:
+        rgba(0,0,0,0.18);
+
+    color:
+        white;
+
+    font-size:
+        11px;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.form-input:focus {
+
+    border-color:
+        rgba(124,60,255,0.7);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(124,60,255,0.08);
+
+}
+
+
+.form-input::placeholder {
+
+    color:
+        #625d79;
+
+}
+
+
+/* =====================================================
+   NETWORK SELECTION
+===================================================== */
+
+.network-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        10px;
+
+}
+
+
+.network-option {
+
+    position:
+        relative;
+
+}
+
+
+.network-option input {
+
+    position:
+        absolute;
+
+    opacity:
+        0;
+
+}
+
+
+.network-label {
+
+    min-height:
+        70px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    cursor:
+        pointer;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.network-label i {
+
+    font-size:
+        19px;
+
+}
+
+
+.network-label span {
+
+    font-size:
+        9px;
+
+    font-weight:
+        600;
+
+}
+
+
+.network-option input:checked
++ .network-label {
+
+    border-color:
+        var(--purple);
+
+    background:
+        rgba(124,60,255,0.12);
+
+    box-shadow:
+        0 0 20px
+        rgba(124,60,255,0.12);
+
+}
+
+
+/* NETWORK BRAND COLORS */
+
+.mtn-icon {
+
+    color:
+        #ffc857;
+
+}
+
+
+.telecel-icon {
+
+    color:
+        #ff527b;
+
+}
+
+
+.at-icon {
+
+    color:
+        #ff7b3d;
+
+}
+
+
+/* =====================================================
+   PACKAGE GRID
+===================================================== */
+
+.package-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        10px;
+
+}
+
+
+.package-option {
+
+    position:
+        relative;
+
+}
+
+
+.package-option input {
+
+    position:
+        absolute;
+
+    opacity:
+        0;
+
+}
+
+
+.package-label {
+
+    display:
+        block;
+
+    padding:
+        15px 12px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    cursor:
+        pointer;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.package-label:hover {
+
+    border-color:
+        rgba(124,60,255,0.35);
+
+}
+
+
+.package-option input:checked
++ .package-label {
+
+    border-color:
+        var(--purple);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(124,60,255,0.15),
+            rgba(50,126,255,0.08)
+        );
+
+}
+
+
+.package-size {
+
+    display:
+        block;
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+}
+
+
+.package-validity {
+
+    display:
+        block;
+
+    margin-top:
+        5px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        8px;
+
+}
+
+
+.package-price {
+
+    display:
+        block;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--purple-light);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =====================================================
+   PAYMENT METHOD
+===================================================== */
+
+.payment-options {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:
+        10px;
+
+}
+
+
+.payment-option {
+
+    position:
+        relative;
+
+}
+
+
+.payment-option input {
+
+    position:
+        absolute;
+
+    opacity:
+        0;
+
+}
+
+
+.payment-label {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    padding:
+        13px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        11px;
+
+    cursor:
+        pointer;
+
+    font-size:
+        9px;
+
+    color:
+        var(--text-muted);
+
+}
+
+
+.payment-label i {
+
+    font-size:
+        16px;
+
+    color:
+        var(--purple-light);
+
+}
+
+
+.payment-option input:checked
++ .payment-label {
+
+    border-color:
+        var(--purple);
+
+    color:
+        white;
+
+    background:
+        rgba(124,60,255,0.1);
+
+}
+
+
+/* =====================================================
+   ORDER SUMMARY
+===================================================== */
+
+.summary-card {
+
+    position:
+        sticky;
+
+    top:
+        25px;
+
+}
+
+
+.balance-box {
+
+    padding:
+        15px;
+
+    margin-bottom:
+        20px;
+
+    border:
+        1px solid
+        rgba(124,60,255,0.15);
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(124,60,255,0.07);
+
+}
+
+
+.balance-box-top {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+}
+
+
+.balance-box span {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+}
+
+
+.balance-box strong {
+
+    font-size:
+        16px;
+
+}
+
+
+.add-money {
+
+    margin-top:
+        10px;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        var(--purple-light);
+
+    font-size:
+        9px;
+
+}
+
+
+/* SUMMARY ROW */
+
+.summary-row {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        13px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.05);
+
+}
+
+
+.summary-row span {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+}
+
+
+.summary-row strong {
+
+    font-size:
+        10px;
+
+    text-align:
+        right;
+
+}
+
+
+.summary-total {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    padding:
+        18px 0;
+
+}
+
+
+.summary-total span {
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+}
+
+
+.summary-total strong {
+
+    font-size:
+        19px;
+
+}
+
+
+/* PURCHASE BUTTON */
+
+.purchase-button {
+
+    width:
+        100%;
+
+    padding:
+        14px;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #7135f5,
+            #337eff
+        );
+
+    color:
+        white;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.purchase-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(82,49,255,0.25);
+
+}
+
+
+.purchase-button:disabled {
+
+    opacity:
+        0.5;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+}
+
+
+/* =====================================================
+   SECURITY NOTE
+===================================================== */
+
+.security-note {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        9px;
+
+    margin-top:
+        15px;
+
+    padding:
+        12px;
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(32,232,155,0.05);
+
+    border:
+        1px solid
+        rgba(32,232,155,0.1);
+
+}
+
+
+.security-note i {
+
+    color:
+        var(--success);
+
+    margin-top:
+        2px;
+
+}
+
+
+.security-note p {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        8px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =====================================================
+   DELIVERY TRACKER
+===================================================== */
+
+.tracker-card {
+
+    margin-top:
+        20px;
+
+}
+
+
+.tracker-status {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+}
+
+
+.status-icon {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(32,232,155,0.1);
+
+    color:
+        var(--success);
+
+}
+
+
+.tracker-status h3 {
+
+    font-size:
+        11px;
+
+}
+
+
+.tracker-status p {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        8px;
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp-button {
+
+    position:
+        fixed;
+
+    right:
+        22px;
+
+    bottom:
+        25px;
+
+    width:
+        56px;
+
+    height:
+        56px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        #25D366;
+
+    color:
+        white;
+
+    font-size:
+        26px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(37,211,102,0.3);
+
+    z-index:
+        500;
+
+}
+
+
+/* =====================================================
+   MOBILE NAV
+===================================================== */
+
+.mobile-nav {
+
+    display:
+        none;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media
+(max-width: 900px) {
+
+    .purchase-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .summary-card {
+
+        position:
+            static;
+
+    }
+
+
+    .package-grid {
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+    }
+
+}
+
+
+@media
+(max-width: 700px) {
+
+    .sidebar {
+
+        display:
+            none;
+
+    }
+
+
+    .main-content {
+
+        margin-left:
+            0;
+
+        padding:
+            18px
+            15px
+            100px;
+
+    }
+
+
+    .page-title h1 {
+
+        font-size:
+            19px;
+
+    }
+
+
+    .page-title p {
+
+        font-size:
+            9px;
+
+    }
+
+
+    .card {
+
+        padding:
+            17px;
+
+    }
+
+
+    .network-grid {
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+    }
+
+
+    .package-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .payment-options {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .whatsapp-button {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+        right:
+            17px;
+
+        bottom:
+            88px;
+
+        font-size:
+            22px;
+
+    }
+
+
+    .mobile-nav {
+
+        display:
+            flex;
+
+        position:
+            fixed;
+
+        left:
+            10px;
+
+        right:
+            10px;
+
+        bottom:
+            10px;
+
+        height:
+            68px;
+
+        padding:
+            7px;
+
+        border:
+            1px solid
+            rgba(255,255,255,0.1);
+
+        border-radius:
+            20px;
+
+        background:
+            rgba(9,6,39,0.94);
+
+        backdrop-filter:
+            blur(20px);
+
+        z-index:
+            400;
+
+    }
+
+
+    .mobile-nav-item {
+
+        flex:
+            1;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        gap:
+            5px;
+
+        border:
+            none;
+
+        background:
+            none;
+
+        color:
+            #77718f;
+
+        font-size:
+            8px;
+
+    }
+
+
+    .mobile-nav-item i {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .mobile-nav-item.active {
+
+        color:
+            #a875ff;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+
+    <div class="sidebar-brand">
+
+
+        <div class="brand-orb">
+
+            AMG
+
+        </div>
+
+
+        <div class="brand-info">
+
+            <h2>
+                AMG Multi-Digital
+            </h2>
+
+            <p>
+                SERVICES
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <nav class="sidebar-nav">
+
+
+        <div class="nav-label">
+            Main Menu
+        </div>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('dashboard.html')"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </button>
+
+
+        <button
+            class="nav-link active"
+        >
+
+            <i class="fa-solid fa-database"></i>
+
+            Buy Data
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('services.html')"
+        >
+
+            <i class="fa-solid fa-grid-2"></i>
+
+            All Services
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('wallet.html')"
+        >
+
+            <i class="fa-solid fa-wallet"></i>
+
+            Wallet
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('transactions.html')"
+        >
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            Transactions
+
+        </button>
+
+
+
+        <div
+            class="nav-label"
+            style="margin-top:25px;"
+        >
+
+            Account
+
+        </div>
+
+
+        <button
+            class="nav-link"
+            onclick="goTo('profile.html')"
+        >
+
+            <i class="fa-solid fa-user"></i>
+
+            My Profile
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="showNotification()"
+        >
+
+            <i class="fa-solid fa-bell"></i>
+
+            Notifications
+
+        </button>
+
+
+        <button
+            class="nav-link"
+            onclick="openWhatsApp()"
+        >
+
+            <i class="fa-solid fa-headset"></i>
+
+            Support Center
+
+        </button>
+
+
+    </nav>
+
+
+
+    <div class="sidebar-bottom">
+
+
+        <button
+            class="nav-link logout-btn"
+            onclick="logout()"
+        >
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+
+        <div class="page-title">
+
+
+            <button
+                class="back-button"
+                onclick="goTo('services.html')"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Services
+
+            </button>
+
+
+            <h1>
+                Buy Data
+            </h1>
+
+
+            <p>
+                Choose a network, select a package
+                and send data instantly.
+            </p>
+
+
+        </div>
+
+
+        <div class="topbar-actions">
+
+
+            <button
+                class="icon-button"
+                onclick="showNotification()"
+            >
+
+                <i class="fa-regular fa-bell"></i>
+
+            </button>
+
+
+            <button
+                class="profile-mini"
+                onclick="goTo('profile.html')"
+            >
+
+                KM
+
+            </button>
+
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =================================================
+         PURCHASE LAYOUT
+    ================================================== -->
+
+    <div class="purchase-layout">
+
+
+        <!-- =============================================
+             LEFT SIDE
+        ============================================== -->
+
+        <div>
+
+
+            <!-- NETWORK & PHONE -->
+
+            <section class="card">
+
+
+                <div class="card-header">
+
+
+                    <div class="card-header-icon">
+
+                        <i class="fa-solid fa-signal"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Select Network
+                        </h2>
+
+                        <p>
+                            Choose the network for your data bundle.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="form-group">
+
+
+                    <label class="form-label">
+
+                        Network
+                        <span>*</span>
+
+                    </label>
+
+
+                    <div class="network-grid">
+
+
+                        <!-- MTN -->
+
+                        <div class="network-option">
+
+
+                            <input
+                                type="radio"
+                                name="network"
+                                id="mtn"
+                                value="MTN"
+                                onchange="selectNetwork('MTN')"
+                            >
+
+
+                            <label
+                                for="mtn"
+                                class="network-label"
+                            >
+
+                                <i
+                                    class="fa-solid fa-signal mtn-icon"
+                                ></i>
+
+                                <span>
+                                    MTN
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+
+
+                        <!-- TELECEL -->
+
+                        <div class="network-option">
+
+
+                            <input
+                                type="radio"
+                                name="network"
+                                id="telecel"
+                                value="Telecel"
+                                onchange="selectNetwork('Telecel')"
+                            >
+
+
+                            <label
+                                for="telecel"
+                                class="network-label"
+                            >
+
+                                <i
+                                    class="fa-solid fa-signal telecel-icon"
+                                ></i>
+
+                                <span>
+                                    Telecel
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+
+
+                        <!-- AIRTELTIGO -->
+
+                        <div class="network-option">
+
+
+                            <input
+                                type="radio"
+                                name="network"
+                                id="airteltigo"
+                                value="AirtelTigo"
+                                onchange="selectNetwork('AirtelTigo')"
+                            >
+
+
+                            <label
+                                for="airteltigo"
+                                class="network-label"
+                            >
+
+                                <i
+                                    class="fa-solid fa-signal at-icon"
+                                ></i>
+
+                                <span>
+                                    AirtelTigo
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+
+                    <label
+                        class="form-label"
+                        for="phone"
+                    >
+
+                        Recipient Phone Number
+                        <span>*</span>
+
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        class="form-input"
+                        placeholder="e.g. 024 123 4567"
+                        maxlength="10"
+                        oninput="validateForm()"
+                    >
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- DATA PACKAGES -->
+
+            <section
+                class="card"
+                style="margin-top:20px;"
+            >
+
+
+                <div class="card-header">
+
+
+                    <div class="card-header-icon">
+
+                        <i class="fa-solid fa-box-open"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Choose Data Package
+                        </h2>
+
+                        <p>
+                            Select the bundle you want to purchase.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div
+                    class="package-grid"
+                    id="packageGrid"
+                >
+
+
+                    <!-- PACKAGE 1 -->
+
+                    <div class="package-option">
+
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="package1"
+                            value="1GB"
+                            data-price="7.50"
+                            onchange="selectPackage('1GB', 7.50)"
+                        >
+
+
+                        <label
+                            for="package1"
+                            class="package-label"
+                        >
+
+                            <span class="package-size">
+                                1GB
+                            </span>
+
+                            <span class="package-validity">
+                                Standard Bundle
+                            </span>
+
+                            <span class="package-price">
+                                GH₵ 7.50
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <!-- PACKAGE 2 -->
+
+                    <div class="package-option">
+
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="package2"
+                            value="2GB"
+                            data-price="14.00"
+                            onchange="selectPackage('2GB', 14.00)"
+                        >
+
+
+                        <label
+                            for="package2"
+                            class="package-label"
+                        >
+
+                            <span class="package-size">
+                                2GB
+                            </span>
+
+                            <span class="package-validity">
+                                Standard Bundle
+                            </span>
+
+                            <span class="package-price">
+                                GH₵ 14.00
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <!-- PACKAGE 3 -->
+
+                    <div class="package-option">
+
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="package3"
+                            value="3GB"
+                            data-price="20.00"
+                            onchange="selectPackage('3GB', 20.00)"
+                        >
+
+
+                        <label
+                            for="package3"
+                            class="package-label"
+                        >
+
+                            <span class="package-size">
+                                3GB
+                            </span>
+
+                            <span class="package-validity">
+                                Standard Bundle
+                            </span>
+
+                            <span class="package-price">
+                                GH₵ 20.00
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <!-- PACKAGE 4 -->
+
+                    <div class="package-option">
+
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="package4"
+                            value="5GB"
+                            data-price="32.00"
+                            onchange="selectPackage('5GB', 32.00)"
+                        >
+
+
+                        <label
+                            for="package4"
+                            class="package-label"
+                        >
+
+                            <span class="package-size">
+                                5GB
+                            </span>
+
+                            <span class="package-validity">
+                                Standard Bundle
+                            </span>
+
+                            <span class="package-price">
+                                GH₵ 32.00
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <!-- PACKAGE 5 -->
+
+                    <div class="package-option">
+
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="package5"
+                            value="10GB"
+                            data-price="60.00"
+                            onchange="selectPackage('10GB', 60.00)"
+                        >
+
+
+                        <label
+                            for="package5"
+                            class="package-label"
+                        >
+
+                            <span class="package-size">
+                                10GB
+                            </span>
+
+                            <span class="package-validity">
+                                Standard Bundle
+                            </span>
+
+                            <span class="package-price">
+                                GH₵ 60.00
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <!-- PACKAGE 6 -->
+
+                    <div class="package-option">
+
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="package6"
+                            value="20GB"
+                            data-price="110.00"
+                            onchange="selectPackage('20GB', 110.00)"
+                        >
+
+
+                        <label
+                            for="package6"
+                            class="package-label"
+                        >
+
+                            <span class="package-size">
+                                20GB
+                            </span>
+
+                            <span class="package-validity">
+                                Standard Bundle
+                            </span>
+
+                            <span class="package-price">
+                                GH₵ 110.00
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- PAYMENT -->
+
+            <section
+                class="card"
+                style="margin-top:20px;"
+            >
+
+
+                <div class="card-header">
+
+
+                    <div class="card-header-icon">
+
+                        <i class="fa-solid fa-credit-card"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Payment Method
+                        </h2>
+
+                        <p>
+                            Choose how you want to pay.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="payment-options">
+
+
+                    <div class="payment-option">
+
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            id="walletPayment"
+                            value="wallet"
+                            checked
+                        >
+
+
+                        <label
+                            for="walletPayment"
+                            class="payment-label"
+                        >
+
+                            <i
+                                class="fa-solid fa-wallet"
+                            ></i>
+
+                            Pay with AMG Wallet
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <div class="payment-option">
+
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            id="onlinePayment"
+                            value="online"
+                        >
+
+
+                        <label
+                            for="onlinePayment"
+                            class="payment-label"
+                        >
+
+                            <i
+                                class="fa-solid fa-globe"
+                            ></i>
+
+                            Pay Online
+
+                        </label>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+
+        <!-- =============================================
+             RIGHT SIDE
+        ============================================== -->
+
+        <aside>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <section class="card summary-card">
+
+
+                <div class="card-header">
+
+
+                    <div class="card-header-icon">
+
+                        <i class="fa-solid fa-receipt"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Order Summary
+                        </h2>
+
+                        <p>
+                            Review your purchase before paying.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BALANCE -->
+
+                <div class="balance-box">
+
+
+                    <div class="balance-box-top">
+
+
+                        <span>
+                            Available Wallet Balance
+                        </span>
+
+
+                        <strong>
+                            GH₵ 250.00
+                        </strong>
+
+
+                    </div>
+
+
+                    <button
+                        class="add-money"
+                        onclick="addMoney()"
+                    >
+
+                        + Add Money
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- SUMMARY -->
+
+                <div class="summary-row">
+
+
+                    <span>
+                        Network
+                    </span>
+
+
+                    <strong
+                        id="summaryNetwork"
+                    >
+                        Not selected
+                    </strong>
+
+
+                </div>
+
+
+
+                <div class="summary-row">
+
+
+                    <span>
+                        Phone Number
+                    </span>
+
+
+                    <strong
+                        id="summaryPhone"
+                    >
+                        Not entered
+                    </strong>
+
+
+                </div>
+
+
+
+                <div class="summary-row">
+
+
+                    <span>
+                        Data Package
+                    </span>
+
+
+                    <strong
+                        id="summaryPackage"
+                    >
+                        Not selected
+                    </strong>
+
+
+                </div>
+
+
+
+                <div class="summary-row">
+
+
+                    <span>
+                        Payment
+                    </span>
+
+
+                    <strong
+                        id="summaryPayment"
+                    >
+                        AMG Wallet
+                    </strong>
+
+
+                </div>
+
+
+
+                <div class="summary-total">
+
+
+                    <span>
+                        Total
+                    </span>
+
+
+                    <strong
+                        id="summaryTotal"
+                    >
+                        GH₵ 0.00
+                    </strong>
+
+
+                </div>
+
+
+
+                <!-- PURCHASE -->
+
+                <button
+                    class="purchase-button"
+                    id="purchaseButton"
+                    onclick="processPurchase()"
+                    disabled
+                >
+
+                    <i
+                        class="fa-solid fa-lock"
+                    ></i>
+
+                    Complete Purchase
+
+                </button>
+
+
+
+                <!-- SECURITY -->
+
+                <div class="security-note">
+
+
+                    <i
+                        class="fa-solid fa-shield-halved"
+                    ></i>
+
+
+                    <p>
+
+                        Your transaction is protected.
+                        We never store your payment credentials.
+
+                    </p>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- DELIVERY TRACKER -->
+
+            <section
+                class="card tracker-card"
+            >
+
+
+                <div class="card-header">
+
+
+                    <div class="card-header-icon">
+
+                        <i
+                            class="fa-solid fa-truck-fast"
+                        ></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Delivery Tracker
+                        </h2>
+
+                        <p>
+                            Track your data order status.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="tracker-status">
+
+
+                    <div class="status-icon">
+
+                        <i
+                            class="fa-solid fa-check"
+                        ></i>
+
+                    </div>
+
+
+                    <div>
+
+
+                        <h3>
+                            Ready for your order
+                        </h3>
+
+
+                        <p>
+
+                            Once your purchase is completed,
+                            your delivery status will appear here.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </aside>
+
+
+    </div>
+
+
+</main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MOBILE NAV
+===================================================== -->
+
+<nav class="mobile-nav">
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="goTo('dashboard.html')"
+    >
+
+        <i class="fa-solid fa-house"></i>
+
+        Home
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item active"
+    >
+
+        <i class="fa-solid fa-database"></i>
+
+        Data
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="goTo('services.html')"
+    >
+
+        <i class="fa-solid fa-grid-2"></i>
+
+        Services
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="goTo('wallet.html')"
+    >
+
+        <i class="fa-solid fa-wallet"></i>
+
+        Wallet
+
+    </button>
+
+
+    <button
+        class="mobile-nav-item"
+        onclick="goTo('profile.html')"
+    >
+
+        <i class="fa-solid fa-user"></i>
+
+        Profile
+
+    </button>
+
+
+</nav>
+
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+    href="https://wa.me/2330000000000"
+    target="_blank"
+    class="whatsapp-button"
+    aria-label="Contact AMG Support"
+>
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<script>
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let selectedNetwork = "";
+
+let selectedPackage = "";
+
+let selectedPrice = 0;
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function goTo(page) {
+
+    window.location.href =
+        page;
+
+}
+
+
+/* =====================================================
+   SELECT NETWORK
+===================================================== */
+
+function selectNetwork(network) {
+
+    selectedNetwork =
+        network;
+
+
+    document.getElementById(
+        "summaryNetwork"
+    ).textContent =
+        network;
+
+
+    validateForm();
+
+}
+
+
+/* =====================================================
+   SELECT PACKAGE
+===================================================== */
+
+function selectPackage(
+    packageName,
+    price
+) {
+
+    selectedPackage =
+        packageName;
+
+
+    selectedPrice =
+        price;
+
+
+    document.getElementById(
+        "summaryPackage"
+    ).textContent =
+        packageName;
+
+
+    document.getElementById(
+        "summaryTotal"
+    ).textContent =
+
+        "GH₵ " +
+        price.toFixed(2);
+
+
+    validateForm();
+
+}
+
+
+/* =====================================================
+   PHONE INPUT
+===================================================== */
+
+document
+.getElementById("phone")
+.addEventListener(
+    "input",
+    function() {
+
+
+        let phone =
+            this.value
+            .replace(
+                /\D/g,
+                ""
+            );
+
+
+        this.value =
+            phone;
+
+
+        document.getElementById(
+            "summaryPhone"
+        ).textContent =
+
+            phone.length > 0
+            ? phone
+            : "Not entered";
+
+
+        validateForm();
+
+    }
+);
+
+
+/* =====================================================
+   PAYMENT METHOD
+===================================================== */
+
+document
+.querySelectorAll(
+    'input[name="payment"]'
+)
+.forEach(
+    input => {
+
+
+        input.addEventListener(
+            "change",
+            function() {
+
+
+                const summary =
+                    document.getElementById(
+                        "summaryPayment"
+                    );
+
+
+                if (
+                    this.value ===
+                    "wallet"
+                ) {
+
+                    summary.textContent =
+                        "AMG Wallet";
+
+                }
+
+                else {
+
+                    summary.textContent =
+                        "Online Payment";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   VALIDATE FORM
+===================================================== */
+
+function validateForm() {
+
+
+    const phone =
+        document
+        .getElementById("phone")
+        .value
+        .replace(
+            /\D/g,
+            ""
+        );
+
+
+    const purchaseButton =
+        document.getElementById(
+            "purchaseButton"
+        );
+
+
+    if (
+
+        selectedNetwork !== ""
+
+        &&
+
+        selectedPackage !== ""
+
+        &&
+
+        phone.length >= 10
+
+    ) {
+
+        purchaseButton.disabled =
+            false;
+
+    }
+
+    else {
+
+        purchaseButton.disabled =
+            true;
+
+    }
+
+}
+
+
+/* =====================================================
+   PROCESS PURCHASE
+===================================================== */
+
+function processPurchase() {
+
+
+    const phone =
+        document
+        .getElementById("phone")
+        .value;
+
+
+    const paymentMethod =
+        document
+        .querySelector(
+            'input[name="payment"]:checked'
+        )
+        .value;
+
+
+    if (
+        !selectedNetwork ||
+        !selectedPackage ||
+        !phone
+    ) {
+
+        alert(
+            "Please complete all required fields."
+        );
+
+        return;
+
+    }
+
+
+    /*
+        IMPORTANT:
+
+        THIS IS CURRENTLY A FRONTEND DEMO.
+
+        THE REAL FLOW WILL BE:
+
+        1. User clicks purchase.
+
+        2. Frontend sends request
+           to your secure backend.
+
+        3. Backend checks user.
+
+        4. Backend checks wallet balance.
+
+        5. Backend creates transaction.
+
+        6. Backend calls DataMart API.
+
+        7. DataMart returns reference.
+
+        8. Backend saves transaction.
+
+        9. Frontend shows delivery tracker.
+
+        YOUR DATAMART API KEY MUST
+        NEVER BE STORED HERE.
+    */
+
+
+    if (
+        paymentMethod ===
+        "wallet"
+    ) {
+
+
+        alert(
+
+            "Demo purchase initiated!\n\n" +
+
+            "Network: " +
+            selectedNetwork +
+
+            "\nPackage: " +
+            selectedPackage +
+
+            "\nPhone: " +
+            phone +
+
+            "\nAmount: GH₵ " +
+            selectedPrice.toFixed(2)
+
+        );
+
+    }
+
+
+    else {
+
+
+        alert(
+
+            "Online payment flow will be connected to Paystack.\n\n" +
+
+            "Amount: GH₵ " +
+            selectedPrice.toFixed(2)
+
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ADD MONEY
+===================================================== */
+
+function addMoney() {
+
+
+    alert(
+
+        "Paystack funding flow will be connected here."
+
+    );
+
+}
+
+
+/* =====================================================
+   NOTIFICATION
+===================================================== */
+
+function showNotification() {
+
+
+    alert(
+
+        "You have 1 new AMG notification."
+
+    );
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function openWhatsApp() {
+
+
+    window.open(
+
+        "https://wa.me/2330000000000",
+
+        "_blank"
+
+    );
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout() {
+
+
+    const confirmLogout =
+        confirm(
+            "Are you sure you want to logout?"
+        );
+
+
+    if (
+        confirmLogout
+    ) {
+
+
+        /*
+            FIREBASE AUTH SIGN OUT
+            WILL BE CONNECTED HERE.
+        */
+
+
+        window.location.href =
+            "index.html";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
