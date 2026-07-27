@@ -710,6 +710,17 @@
             transform: scale(0.98);
         }
 
+        .purchase-card .price-pill {
+            margin-left: auto;
+            background: rgba(124, 60, 255, 0.16);
+            color: var(--purple-light);
+            padding: 5px 8px;
+            border-radius: 999px;
+            font-size: 9px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
 
         .service-icon {
 
@@ -1733,6 +1744,7 @@
 
                         </div>
 
+                        <span class="price-pill">From ₵4.50</span>
 
                         <i
                             class="fa-solid fa-chevron-right purchase-arrow"
@@ -1767,6 +1779,7 @@
 
                         </div>
 
+                        <span class="price-pill">From ₵1.20</span>
 
                         <i
                             class="fa-solid fa-chevron-right purchase-arrow"
@@ -1801,6 +1814,7 @@
 
                         </div>
 
+                        <span class="price-pill">From ₵8.00</span>
 
                         <i
                             class="fa-solid fa-chevron-right purchase-arrow"
@@ -1835,6 +1849,7 @@
 
                         </div>
 
+                        <span class="price-pill">From ₵2.50</span>
 
                         <i
                             class="fa-solid fa-chevron-right purchase-arrow"
@@ -2596,13 +2611,23 @@
             const route = window.AMGNavigation.getPurchaseRoute(service);
             const currentUser = authApi.loadUser();
 
-            if (route && currentUser) {
-                window.location.href = route;
-                return;
-            }
+            if (route) {
+                if (currentUser) {
+                    window.location.href = route;
+                    return;
+                }
 
-            const label = service ? service.toLowerCase() : 'this service';
-            alert(`Please login or create an account to continue with ${label}.`);
+                const label = service ? service.toLowerCase() : 'this service';
+                const priceHint = service === 'data'
+                    ? 'Prices start from ₵4.50.'
+                    : service === 'airtime'
+                        ? 'Prices start from ₵1.20.'
+                        : service === 'electricity'
+                            ? 'Prices start from ₵8.00.'
+                            : 'Prices start from ₵2.50.';
+
+                alert(`You can still browse ${label} availability. ${priceHint} Sign in later if you want to complete the purchase.`);
+            }
 
             document
                 .getElementById("auth")
