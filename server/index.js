@@ -7,7 +7,10 @@
 const express = require('express');
 const axios = require('axios');
 const crypto = require('crypto');
+const cookieSession = require('cookie-session');
+const bcrypt = require('bcrypt');
 const app = express();
+const path = require('path');
 
 const PORT = process.env.PORT || 4000;
 const BASE = 'https://api.datamartgh.shop';
@@ -17,18 +20,67 @@ const DM_API_SECRET = process.env.DM_API_SECRET || '';
 const SIGNING_SECRET = process.env.SIGNING_SECRET || '';
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || '';
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || '';
+const ADMIN_USER = process.env.ADMIN_USER || 'amgadmin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'amg123';
+const SESSION_KEYS = (process.env.SESSION_KEYS || 'dev_key').split(',');
 
 if (!DM_API_KEY) console.warn('Warning: DM_API_KEY not set. Proxy will forward but requests may be rejected.');
 
 // capture raw body for webhook signature verification
 app.use(express.json({ verify: (req, res, buf) => { req.rawBody = buf; } }));
 
+// cookie session for admin login
+app.use(cookieSession({ name: 'amg_sess', keys: SESSION_KEYS, maxAge: 24 * 60 * 60 * 1000 }));
+
+// Serve workspace static files so the admin UI can be loaded from the proxy origin
+const STATIC_ROOT = path.join(__dirname, '..');
+app.use(express.static(STATIC_ROOT));
+app.get('/admin', (req, res) => res.sendFile(path.join(STATIC_ROOT, 'pages', 'admin.html')));
+
 function requireAdmin(req, res, next) {
-  if (!ADMIN_TOKEN) return next(); // no token configured — allow (but warn)
+  // If session shows admin, allow
+  if (req.session && req.session.isAdmin) return next();
+
+  // Fallback to header token for compatibility/testing
+  if (!ADMIN_TOKEN) return next(); // no token configured — allow
   const t = req.get('X-Admin-Token') || '';
   if (t !== ADMIN_TOKEN) return res.status(401).json({ error: 'Unauthorized' });
   next();
 }
+
+// Admin login route — sets a session cookie
+app.post('/admin/login', async (req, res) => {
+  try {
+    const { username, password } = req.body || {};
+    if (!username || !password) return res.status(400).json({ error: 'username and password required' });
+
+    // Compare with env-configured admin creds. For demonstration we use bcrypt compare if password is hashed.
+    if (password === ADMIN_PASSWORD && username === ADMIN_USER) {
+      req.session.isAdmin = true;
+      req.session.user = username;
+      return res.json({ ok: true });
+    }
+
+    // If ADMIN_PASSWORD appears to be a bcrypt hash, try compare
+    if (ADMIN_PASSWORD.startsWith('$2b$') || ADMIN_PASSWORD.startsWith('$2a$')) {
+      const match = await bcrypt.compare(password, ADMIN_PASSWORD);
+      if (match && username === ADMIN_USER) {
+        req.session.isAdmin = true;
+        req.session.user = username;
+        return res.json({ ok: true });
+      }
+    }
+
+    return res.status(401).json({ error: 'Invalid credentials' });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/admin/logout', (req, res) => {
+  req.session = null;
+  res.json({ ok: true });
+});
 
 async function forward(req, res, path, method = 'post') {
   try {
