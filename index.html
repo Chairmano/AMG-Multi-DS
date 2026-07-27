@@ -684,11 +684,16 @@
 
             transition:
                 var(--transition);
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            -webkit-tap-highlight-color: transparent;
 
         }
 
 
-        .purchase-card:hover {
+        .purchase-card:hover,
+        .purchase-card:focus-visible {
 
             transform:
                 translateY(-2px);
@@ -697,7 +702,12 @@
                 rgba(130,80,255,0.5);
 
             background: var(--surface-card-hover);
+            outline: none;
 
+        }
+
+        .purchase-card:active {
+            transform: scale(0.98);
         }
 
 
@@ -2394,6 +2404,7 @@
 
     <script src="./assets/js/auth.js"></script>
     <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/navigation.js"></script>
     <script>
 
         const authApi = window.AMGAuth;
@@ -2582,13 +2593,16 @@
         function openQuickPurchase(
             service
         ) {
+            const route = window.AMGNavigation.getPurchaseRoute(service);
+            const currentUser = authApi.loadUser();
 
-            alert(
-                "Please login or create an account to continue with " +
-                service +
-                "."
-            );
+            if (route && currentUser) {
+                window.location.href = route;
+                return;
+            }
 
+            const label = service ? service.toLowerCase() : 'this service';
+            alert(`Please login or create an account to continue with ${label}.`);
 
             document
                 .getElementById("auth")
