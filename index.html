@@ -2603,13 +2603,13 @@
                 const productList = service === 'data'
                     ? ['MTN 5GB', 'Telecel 10GB', 'AirtelTigo 15GB']
                     : service === 'airtime'
-                        ? ['MTN ₵5', 'Telecel ₵10', 'AirtelTigo ₵15']
+                        ? ['MTN airtime', 'Telecel airtime', 'AirtelTigo airtime']
                         : service === 'electricity'
                             ? ['Prepaid token', 'Postpaid bill']
                             : ['WASSCE result', 'BECE result'];
 
                 const productText = productList.map((item) => `• ${item}`).join('\n');
-                alert(`${label.toUpperCase()} PRODUCTS\n\n${productText}`);
+                alert(`${label.toUpperCase()} OPTIONS\n\n${productText}`);
             }
         }
 
