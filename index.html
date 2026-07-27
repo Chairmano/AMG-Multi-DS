@@ -502,7 +502,7 @@
             letter-spacing: -3px;
 
             line-height: 1;
-
+            color: var(--text-main);
         }
 
 
@@ -520,9 +520,15 @@
             -webkit-background-clip: text;
 
             background-clip: text;
-
             color: transparent;
+        }
 
+        :root[data-theme="light"] .logo-text {
+            color: #ffffff;
+        }
+
+        :root[data-theme="light"] .logo-text span {
+            background: linear-gradient(120deg, #6d28d9, #2563eb, #0891b2);
         }
 
 
