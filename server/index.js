@@ -162,6 +162,10 @@ app.post('/webhook', (req, res) => {
   res.json({ received: true });
 });
 
-app.get('/', (req, res) => res.send('DataMart proxy running'));
+app.get('/', (req, res) => res.sendFile(path.join(STATIC_ROOT, 'index.html')));
 
-app.listen(PORT, () => console.log(`DataMart proxy listening on http://localhost:${PORT}`));
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`DataMart proxy listening on http://localhost:${PORT}`));
+}
+
+module.exports = { app };
