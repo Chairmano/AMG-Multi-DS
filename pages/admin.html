@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — DataMart Integration</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>body{font-family:system-ui,Arial;max-width:980px;margin:24px auto;padding:0 16px}label{display:block;margin:8px 0;font-weight:600}input,select,textarea{width:100%;padding:8px;margin:4px 0}button{margin-top:8px}</style>
+</head>
+<body>
+  <h1>Admin — DataMart</h1>
+
+  <section>
+    <label>API Key</label>
+    <input id="dmApiKey" placeholder="Enter X-API-Key" />
+    <label>API Secret (optional)</label>
+    <input id="dmApiSecret" placeholder="Enter X-API-Secret (if used)" />
+    <button id="saveKeys">Save</button>
+    <button id="clearKeys">Clear</button>
+  </section>
+
+  <section>
+    <h2>Quick Actions</h2>
+    <button id="btnBalance">Check Balance</button>
+    <button id="btnPackages">Load Data Packages</button>
+    <button id="btnInjectTracker">Inject Delivery Tracker</button>
+    <pre id="output" style="white-space:pre-wrap;background:#f8f8f8;padding:12px;border-radius:6px;margin-top:12px;max-height:360px;overflow:auto"></pre>
+  </section>
+
+  <section>
+    <h2>Single Purchase</h2>
+    <label>Phone number</label>
+    <input id="phone" placeholder="0551234567" />
+    <label>Network</label>
+    <select id="network"><option>YELLO</option><option>TELECEL</option><option>AT_PREMIUM</option></select>
+    <label>Capacity (GB)</label>
+    <input id="capacity" placeholder="5" />
+    <button id="btnPurchase">Purchase</button>
+  </section>
+
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
