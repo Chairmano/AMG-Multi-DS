@@ -12,11 +12,15 @@
 
   <section>
     <label>API Key</label>
-    <input id="dmApiKey" placeholder="Enter X-API-Key" />
+    <input id="dmApiKey" placeholder="Enter X-API-Key (for widget only)" />
     <label>API Secret (optional)</label>
     <input id="dmApiSecret" placeholder="Enter X-API-Secret (if used)" />
-    <button id="saveKeys">Save</button>
-    <button id="clearKeys">Clear</button>
+    <label>Admin Token</label>
+    <input id="dmAdminToken" placeholder="X-Admin-Token for proxy access" />
+    <div style="display:flex;gap:8px">
+      <button id="saveKeys">Save</button>
+      <button id="clearKeys">Clear</button>
+    </div>
   </section>
 
   <section>
